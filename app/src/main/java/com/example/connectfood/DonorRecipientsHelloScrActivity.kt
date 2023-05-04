@@ -11,12 +11,12 @@ import android.widget.TextView
 import java.util.*
 
 @Suppress("DEPRECATION")
-class DonorScreenOneActivity : AppCompatActivity() {
+class DonorRecipientsHelloScrActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_donor_screen_one)
+        setContentView(R.layout.activity_donor_recipients_hello_screen)
 
         val SPLASH_DELAY = 5000 // 3 seconds
         val TEXT_DELAY = 2500 // 3 seconds
