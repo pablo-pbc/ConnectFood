@@ -18,20 +18,7 @@ class LoginActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        Thread {
-            val source = ImageDecoder.createSource(
-                resources, R.drawable.loading
-            )
-            val drawable = ImageDecoder.decodeDrawable(source)
-
-            val imageView = findViewById<ImageView>(R.id.loading1)
-            imageView.post {
-                imageView.setImageDrawable(drawable)
-                (drawable as? AnimatedImageDrawable)?.start()
-            }
-        }.start()
+        setContentView(R.layout.activity_login)
 
         Handler().postDelayed({
             val intent = Intent(this, SignUpActivity::class.java)

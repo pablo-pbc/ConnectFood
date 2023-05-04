@@ -257,12 +257,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F48C06"
-                android:paddingStart="20dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
                 android:text="Sign Up"
-                app:cornerRadius="10dp" />
+                app:cornerRadius="50dp" />
 
         </FrameLayout>
 
@@ -278,6 +276,7 @@
                 android:layout_height="wrap_content"
                 android:text="Já possui uma conta ?"
                 android:textColor="@color/black"
+                android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp" />
 
             <TextView
@@ -286,6 +285,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Sign In"
+                android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp" />
 
         </LinearLayout>

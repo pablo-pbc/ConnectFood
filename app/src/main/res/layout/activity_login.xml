@@ -38,6 +38,7 @@
             android:layout_marginTop="40dp"
             android:text="CNPJ:"
             android:textColor="#F48C06"
+            android:fontFamily="@font/roboto_regular"
             android:textSize="16dp" />
 
 
@@ -66,6 +67,7 @@
             android:layout_marginTop="10dp"
             android:text="Senha:"
             android:textColor="#F48C06"
+            android:fontFamily="@font/roboto_regular"
             android:textSize="16dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -105,12 +107,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F48C06"
-                android:paddingStart="20dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
                 android:text="Sign In"
-                app:cornerRadius="10dp" />
+                app:cornerRadius="50dp" />
 
         </FrameLayout>
 
@@ -126,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:text="Não possue cadastro ainda?"
                 android:textColor="#F48C06"
+                android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp" />
 
             <TextView
@@ -134,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Cadastre-se"
+                android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp" />
 
         </LinearLayout>
