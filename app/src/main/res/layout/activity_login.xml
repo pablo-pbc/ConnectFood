@@ -90,29 +90,16 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <FrameLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
-
-            <ProgressBar
-                android:id="@+id/signInProgressBar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:visibility="invisible" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSignIn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#F48C06"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:text="Sign In"
-                app:cornerRadius="50dp" />
-
-        </FrameLayout>
+            android:backgroundTint="#F48C06"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Sign In"
+            app:cornerRadius="50dp"
+            android:layout_marginTop="50dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
