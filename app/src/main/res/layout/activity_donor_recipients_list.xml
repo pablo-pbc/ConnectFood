@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:scrollbars="none"
-    tools:context=".DonorRecipientsHelloScrActivity">
+    tools:context=".DonorRecipientsListActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top|center"
         android:orientation="vertical"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +49,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:id="@+id/locationTextView"
@@ -67,6 +68,297 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/baseline_location_on_24"
                         android:paddingLeft="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filterList"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFBB63"
+                android:text="List"
+                android:fontFamily="@font/roboto_regular"
+                android:textAllCaps="false"
+                app:cornerRadius="12dp"
+                android:layout_marginRight="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filterGrid"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#F48C06"
+                android:text="Grid"
+                android:fontFamily="@font/roboto_regular"
+                android:textAllCaps="false"
+                app:cornerRadius="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end">
+
+                <ImageView
+                    android:id="@+id/filterLiked"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/not_liked"
+                    android:layout_gravity="center|end"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="10dp">
+
+            <TextView
+                android:id="@+id/filterAll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Todos"
+                android:textColor="#F48C06"
+                android:textSize="14dp"
+                android:fontFamily="@font/roboto_bold"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/filterSchedule"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Agendados"
+                android:textColor="#F48C06"
+                android:textSize="14dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/filterFinished"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Finalizados"
+                android:textColor="#F48C06"
+                android:textSize="14dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="10dp">
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:src="@drawable/foodTeste"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:adjustViewBounds="true"/>-->
+
+                    <ImageView
+                        android:id="@+id/my_image_view"
+                        android:layout_width="176dp"
+                        android:layout_height="176dp"
+                        android:background="@drawable/shape_img_list" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/listUserName"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Restaurante Name"
+                            android:textColor="#F48C06"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_bold"/>
+
+                        <ImageView
+                            android:id="@+id/listUserLike"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/not_liked"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/listUserSlogan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mais de 1K de alimentos doados"
+                        android:textColor="#F48C06"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_marginTop="2dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/listUserLocationIcon"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/baseline_location_on_24"
+                            android:layout_gravity="center_vertical"/>
+
+                        <TextView
+                            android:id="@+id/listUserDistance"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="1,2km"
+                            android:textColor="#F48C06"
+                            android:textSize="10dp"
+                            android:fontFamily="@font/roboto_regular"/>
+
+                        <TextView
+                            android:id="@+id/listUserContact"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Contato"
+                            android:textColor="#F48C06"
+                            android:textSize="10dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textAlignment="textEnd"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/food"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/listUserName1"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Restaurante Name"
+                            android:textColor="#F48C06"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_bold"/>
+
+                        <ImageView
+                            android:id="@+id/listUserLike1"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/not_liked"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/listUserSlogan1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mais de 1K de alimentos doados"
+                        android:textColor="#F48C06"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_marginTop="2dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/listUserLocationIcon1"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/baseline_location_on_24"
+                            android:layout_gravity="center_vertical"/>
+
+                        <TextView
+                            android:id="@+id/listUserDistance1"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="1,2km"
+                            android:textColor="#F48C06"
+                            android:textSize="10dp"
+                            android:fontFamily="@font/roboto_regular"/>
+
+                        <TextView
+                            android:id="@+id/listUserContact1"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Contato"
+                            android:textColor="#F48C06"
+                            android:textSize="10dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textAlignment="textEnd"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
