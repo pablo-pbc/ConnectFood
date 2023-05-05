@@ -1,29 +1,25 @@
 package com.example.connectfood
 
-import android.R
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.widget.ImageView
+import android.os.Handler
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import android.content.Intent
-import android.os.Handler
-import android.view.animation.AnimationUtils
-import android.widget.TextView
 import java.util.*
-
 
 @Suppress("DEPRECATION")
 class DonorRecipientsListActivity : AppCompatActivity() {
 
-    private val SPLASH_DELAY = 3000 // 3 seconds
-
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_donor_recipients_list)
+        setContentView(R.layout.activity_donor_recipients_list_screen)
 
         val myImageView: ImageView = findViewById(R.id.my_image_view)
 
@@ -32,12 +28,5 @@ class DonorRecipientsListActivity : AppCompatActivity() {
             .centerCrop()
             .transform(RoundedCorners(16))
             .into(myImageView)
-
-
-//        Handler().postDelayed({
-//            val intent = Intent(this, SignUpActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }, SPLASH_DELAY.toLong()
     }
 }
