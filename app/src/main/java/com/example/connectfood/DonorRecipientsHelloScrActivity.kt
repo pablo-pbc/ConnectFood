@@ -46,7 +46,7 @@ class DonorRecipientsHelloScrActivity : AppCompatActivity() {
         }, TEXT_DELAY.toLong())
 
         timerTwo.postDelayed({
-            val intent = Intent(this, DonorRecipientsListActivity::class.java)
+            val intent = Intent(this, DonorRecipientsFilterAllActivity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_DELAY.toLong())
