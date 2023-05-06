@@ -28,7 +28,8 @@
                 android:src="@drawable/logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/connect_food_logo" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -36,10 +37,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="CNPJ:"
+            android:text="@string/label_user_login"
             android:textColor="#F48C06"
             android:fontFamily="@font/roboto_regular"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -47,14 +48,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:hint="01.123.456/0001-10"
+            android:hint="@string/sign_in_input_login_hint"
             app:boxStrokeColor="#D9D9D9">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSignInCNPJ"
+            <com.santalu.maskara.widget.MaskEditText
+                android:id="@+id/signInLoginInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
+                android:digits="0123456789"
+                app:mask="__.___.___/____-__"
+                app:maskCharacter="_"
                 android:singleLine="true"
                 android:textColor="@color/organgeConnectFood"/>
 
@@ -64,37 +68,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Senha:"
+            android:text="@string/label_user_password"
             android:textColor="#F48C06"
             android:fontFamily="@font/roboto_regular"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:hint="Password"
+            android:hint="@string/sign_in_input_password_hint"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSignInPassword"
+                android:id="@+id/signInPasswordInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:singleLine="true"
                 android:textColor="#F48C06" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSignIn"
+            android:id="@+id/signInBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#F48C06"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:text="Sign In"
+            android:text="@string/sign_in_btn_txt"
             app:cornerRadius="50dp"
             android:layout_marginTop="50dp"/>
 
@@ -108,17 +112,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Não possue cadastro ainda?"
+                android:text="@string/sign_up_question"
                 android:textColor="#F48C06"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/txtSignUp"
+                android:id="@+id/signInSignUpBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Cadastre-se"
+                android:text="@string/sign_up_btn"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp" />
 

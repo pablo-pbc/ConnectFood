@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="top|center"
         android:orientation="vertical"
         android:layout_marginTop="30dp"
@@ -23,12 +23,13 @@
             android:layout_gravity="center">
 
             <ImageView
-                android:id="@+id/DonorLogo"
+                android:id="@+id/filterAllLoggedUserLogo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/rest_one"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/filter_all_logged_user_logo" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -37,12 +38,12 @@
                 android:layout_gravity="center_vertical">
 
                 <TextView
-                    android:id="@+id/userName"
+                    android:id="@+id/filterAllLoggedUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Authos's Cuisine"
+                    android:text="@string/filter_all_logged_user_name"
                     android:textColor="#F48C06"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/roboto_regular"
                     android:textAlignment="center"/>
 
@@ -51,15 +52,16 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    tools:ignore="UseCompoundDrawables">
 
                     <TextView
                         android:id="@+id/locationTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Restaurante Location"
+                        android:text="@string/filter_all_logged_user_location"
                         android:textColor="#F48C06"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:fontFamily="@font/roboto_regular"
                         android:textAlignment="center"/>
 
@@ -68,7 +70,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/baseline_location_on_24"
-                        android:paddingLeft="10dp"/>
+                        android:paddingStart="10dp"
+                        android:contentDescription="@string/location_icon"
+                        tools:ignore="RtlSymmetry" />
 
                 </LinearLayout>
 
@@ -85,22 +89,22 @@
             android:layout_marginVertical="10dp">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/filterList"
+                android:id="@+id/filterAllTypeList"
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFBB63"
-                android:text="List"
+                android:text="@string/filter_all_list_btn"
                 android:fontFamily="@font/roboto_regular"
                 android:textAllCaps="false"
                 app:cornerRadius="12dp"
-                android:layout_marginRight="12dp"/>
+                android:layout_marginEnd="12dp"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/filterGrid"
+                android:id="@+id/filterAllTypeGrid"
                 android:layout_width="96dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F48C06"
-                android:text="Grid"
+                android:text="@string/filter_all_grid_btn"
                 android:fontFamily="@font/roboto_regular"
                 android:textAllCaps="false"
                 app:cornerRadius="12dp"/>
@@ -115,7 +119,8 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/not_liked"
-                    android:layout_gravity="center|end"/>
+                    android:layout_gravity="center|end"
+                    android:contentDescription="@string/liked_icon"/>
 
             </LinearLayout>
 
@@ -134,9 +139,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Todos"
+                android:text="@string/label_filter_all"
                 android:textColor="#F48C06"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/roboto_bold"
                 android:textAlignment="center"/>
 
@@ -145,9 +150,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Agendados"
+                android:text="@string/label_filter_scheduled"
                 android:textColor="#F48C06"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/roboto_regular"
                 android:textAlignment="center"/>
 
@@ -156,9 +161,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Finalizados"
+                android:text="@string/label_filter_finished"
                 android:textColor="#F48C06"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/roboto_regular"
                 android:textAlignment="center"/>
 
@@ -175,23 +180,27 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
+                    android:id="@+id/filterAllGridUserBloco"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_gravity="center"
-                    android:paddingHorizontal="0dp">
+                    android:paddingHorizontal="0dp"
+                    tools:ignore="UselessParent">
 
 
                     <ImageView
-                        android:id="@+id/my_image_view"
+                        android:id="@+id/filterAllNoLoggedUserGridLogo"
                         android:layout_width="176dp"
                         android:layout_height="176dp"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/filter_all_logged_user_logo" />
 
 
                     <LinearLayout
@@ -200,33 +209,35 @@
                         android:orientation="horizontal"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:paddingHorizontal="10dp">
+                        android:paddingHorizontal="10dp"
+                        tools:ignore="UseCompoundDrawables">
 
                         <TextView
-                            android:id="@+id/listUserName"
+                            android:id="@+id/filterAllNoLoggedUserGridName"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="Restaurante Name"
+                            android:text="@string/filter_all_no_logged_user_name"
                             android:textColor="#F48C06"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:fontFamily="@font/roboto_bold"/>
 
                         <ImageView
-                            android:id="@+id/listUserLike"
+                            android:id="@+id/filterAllNoLoggedGridLikeIcon"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/not_liked"/>
+                            android:src="@drawable/not_liked"
+                            android:contentDescription="@string/liked_icon" />
 
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/listUserSlogan"
+                        android:id="@+id/filterAllNoLoggedUserGridSlogan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mais de 1K de alimentos doados"
+                        android:text="@string/filter_all_no_logged_user_slogan"
                         android:textColor="#F48C06"
-                        android:textSize="10dp"
+                        android:textSize="12sp"
                         android:fontFamily="@font/roboto_regular"
                         android:layout_marginTop="2dp"
                         android:layout_marginHorizontal="10dp"/>
@@ -240,121 +251,30 @@
                         android:paddingHorizontal="10dp">
 
                         <ImageView
-                            android:id="@+id/listUserLocationIcon"
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:src="@drawable/baseline_location_on_24"
-                            android:layout_gravity="center_vertical"/>
+                            android:layout_gravity="center_vertical"
+                            android:contentDescription="@string/location_icon" />
 
                         <TextView
-                            android:id="@+id/listUserDistance"
+                            android:id="@+id/filterAllNoLoggedUserGridDistance"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="1,2km"
+                            android:text="@string/filter_all_no_logged_user_distance"
                             android:textColor="#F48C06"
-                            android:textSize="10dp"
+                            android:textSize="12sp"
                             android:fontFamily="@font/roboto_regular"/>
 
                         <TextView
-                            android:id="@+id/listUserContact"
+                            android:id="@+id/filterAllNoLoggedGridContactBtn"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="Contato"
+                            android:text="@string/filter_all_contact_btn"
                             android:textColor="#F48C06"
-                            android:textSize="10dp"
-                            android:fontFamily="@font/roboto_bold"
-                            android:textAlignment="textEnd"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-
-                    <ImageView
-                        android:layout_width="176dp"
-                        android:layout_height="176dp"
-                        android:src="@drawable/food"
-                        android:layout_gravity="center"
-                        android:adjustViewBounds="true"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:paddingHorizontal="10dp">
-
-                        <TextView
-                            android:id="@+id/listUserName1"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Restaurante Name"
-                            android:textColor="#F48C06"
-                            android:textSize="16dp"
-                            android:fontFamily="@font/roboto_bold"/>
-
-                        <ImageView
-                            android:id="@+id/listUserLike1"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/not_liked"/>
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/listUserSlogan1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Mais de 1K de alimentos doados"
-                        android:textColor="#F48C06"
-                        android:textSize="10dp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginHorizontal="10dp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:paddingHorizontal="10dp">
-
-                        <ImageView
-                            android:id="@+id/listUserLocationIcon1"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:src="@drawable/baseline_location_on_24"
-                            android:layout_gravity="center_vertical"/>
-
-                        <TextView
-                            android:id="@+id/listUserDistance1"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="1,2km"
-                            android:textColor="#F48C06"
-                            android:textSize="10dp"
-                            android:fontFamily="@font/roboto_regular"/>
-
-                        <TextView
-                            android:id="@+id/listUserContact1"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Contato"
-                            android:textColor="#F48C06"
-                            android:textSize="10dp"
+                            android:textSize="12sp"
                             android:fontFamily="@font/roboto_bold"
                             android:textAlignment="textEnd"/>
 
@@ -365,95 +285,92 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/filterAllNoLoggedUserListBloco"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:paddingHorizontal="10dp">
+
+                <ImageView
+                    android:id="@+id/filterAllNoLoggedUserListLogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="176dp"
+                    android:contentDescription="@string/filter_all_no_logged_user_name" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
                     android:layout_gravity="center"
-                    android:paddingHorizontal="10dp">
-
-                    <ImageView
-                        android:id="@+id/image_list_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="176dp" />
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp">
-
-                        <TextView
-                            android:id="@+id/listUserName2"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Restaurante Name"
-                            android:textColor="#F48C06"
-                            android:textSize="16dp"
-                            android:fontFamily="@font/roboto_bold"/>
-
-                        <ImageView
-                            android:id="@+id/listUserLike2"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/not_liked"/>
-
-                    </LinearLayout>
+                    android:layout_marginTop="10dp"
+                    tools:ignore="UseCompoundDrawables">
 
                     <TextView
-                        android:id="@+id/listUserSlogan2"
-                        android:layout_width="match_parent"
+                        android:id="@+id/filterAllNoLoggedUserListName"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Mais de 1K de alimentos doados"
+                        android:text="@string/filter_all_no_logged_user_name"
                         android:textColor="#F48C06"
-                        android:textSize="10dp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:layout_marginTop="2dp"/>
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto_bold"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp">
+                    <ImageView
+                        android:id="@+id/filterAllNoLoggedUserListLikeIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/not_liked"
+                        android:contentDescription="@string/liked_icon" />
 
-                        <ImageView
-                            android:id="@+id/listUserLocationIcon2"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:src="@drawable/baseline_location_on_24"
-                            android:layout_gravity="center_vertical"/>
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/listUserDistance2"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="1,2km"
-                            android:textColor="#F48C06"
-                            android:textSize="10dp"
-                            android:fontFamily="@font/roboto_regular"/>
+                <TextView
+                    android:id="@+id/filterAllNoLoggedUserListSlogan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter_all_no_logged_user_slogan"
+                    android:textColor="#F48C06"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_marginTop="2dp"/>
 
-                        <TextView
-                            android:id="@+id/listUserContact2"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Contato"
-                            android:textColor="#F48C06"
-                            android:textSize="10dp"
-                            android:fontFamily="@font/roboto_bold"
-                            android:textAlignment="textEnd"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
 
-                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/baseline_location_on_24"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/location_icon" />
+
+                    <TextView
+                        android:id="@+id/filterAllNoLoggedUserListDistance"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_all_no_logged_user_distance"
+                        android:textColor="#F48C06"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/roboto_regular"/>
+
+                    <TextView
+                        android:id="@+id/listUserContact2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_all_contact_btn"
+                        android:textColor="#F48C06"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textAlignment="textEnd"/>
 
                 </LinearLayout>
 

@@ -1,3 +1,105 @@
 <resources>
+    <!--Icons standard texts-->
+    <string name="liked_icon">Liked Icon</string>
+    <string name="arrow_icon">Arrow Icon</string>
+    <string name="location_icon">Location Icon</string>
+    <string name="whatsapp_icon">WhatsApp Icon</string>
+    <string name="telephone_icon">Telephone Icon</string>
+
+    <!--App Connect Food standard texts-->
     <string name="app_name">ConnectFood</string>
+    <string name="connect_food_logo">Connect Food Logo</string>
+
+    <!--Layout sign in xml standard texts-->
+    <string name="sign_in_btn_txt">Sign In</string>
+    <string name="sign_in_input_password_hint">Password</string>
+    <string name="sign_in_input_login_hint">01.123.456/0001-10</string>
+
+    <!--Layout Sign Up xml standard texts-->
+    <string name="sign_up_cep">CEP</string>
+    <string name="sign_up_cnpj">CNPJ</string>
+    <string name="sign_up_email">Email</string>
+    <string name="sign_up_cidade">Cidade</string>
+    <string name="sign_up_estado">Estado</string>
+    <string name="sign_up_bairro">Bairro</string>
+    <string name="sign_up_btn">Cadastre-se</string>
+    <string name="sign_up_endereco">Endereço</string>
+    <string name="sign_up_telefone">Telefone</string>
+    <string name="sign_up_password">Password</string>
+    <string name="sign_up_doador_checkbox">Doador</string>
+    <string name="sign_up_confirm_password">Confirm Password</string>
+    <string name="sign_up_instituicao_check_box">Instituição</string>
+    <string name="sign_up_possui_conta">Já possui uma conta ?</string>
+    <string name="sign_up_question">Não possue cadastro ainda?</string>
+
+    <!--Layout schedule details xml standard texts-->
+    <string name="schedule_details_confirm_btn">Confirmar agendamento</string>
+    <string name="schedule_details_no_logged_user_whatsapp">(11) 91234-5678</string>
+    <string name="schedule_details_no_logged_user_telephone">(11) 4455-6677</string>
+    <string name="schedule_details_user_logged_logo">Logo do usuário logado</string>
+    <string name="schedule_details_user_logged_name">Nome do usuário logado</string>
+    <string name="schedule_details_no_logged_user_name">Restaurante Name ñ logado</string>
+    <string name="schedule_details_user_logged_location">Restaurante Location (logado)</string>
+    <string name="schedule_details_user_no_logged_banner">Banner do usuario não logado</string>
+    <string name="schedule_details_no_logged_user_adress">Rua exemplo, 000 - Centro São Paulo \n SP - CEP: 00111-222</string>
+    <string name="schedule_details_no_logged_standard_text">Entre em contato conosco e marque um horário para que possamos separar uma doação</string>
+    <string name="schedule_details_no_logged_user_slogan">Trabalhos com carnes e churrascos ao fim de semana, trazendo o melhor do churrasco para as pessoas.</string>
+
+    <!--Labels standard texts-->
+    <string name="label_adress">Endereço:</string>
+    <string name="label_contact">Contato:</string>
+    <string name="label_user_login">CNPJ:</string>
+    <string name="label_filter_all">Todos</string>
+    <string name="label_user_password">Senha:</string>
+    <string name="label_filter_scheduled">Agendados</string>
+    <string name="label_filter_finished">Finalizados</string>
+    <string name="label_data_coleta_entrega">Data de coleta/entrega:</string>
+
+    <!--hello screen standard texts-->
+    <string name="hello_screen_standard_saudation">Olá</string>
+    <string name="hello_screen_standard_text">Uma boa ação...</string>
+    <string name="hello_screen_user_logged_logo">Logo do usuario</string>
+    <string name="hello_screen_user_logged_name">Nome do usuário Logado</string>
+    <string name="hello_screen_user_logged_slogan">O melhor restaurante da região!</string>
+    <string name="hello_screen_user_logged_location">Localização do usuário logado</string>
+    <string name="hello_screen_standard_text_two">Pode colocar um sorriso no rosto de alguém. Doe!</string>
+
+    <!--filter schedule standard texts-->
+    <string name="filter_schedule_logged_user_logo">Usuario Logo</string>
+    <string name="filter_schedule_no_logged_user_logo">Usuario não logado Logo</string>
+    <string name="filter_schedule_logged_user_name">Nome do usuario logado</string>
+    <string name="filter_schedule_logged_user_location">Restaurante Location</string>
+    <string name="filter_schedule_no_logged_name">Restaurante 1</string>
+    <string name="filter_schedule_data_de_agendamento">Data de agendamento:</string>
+    <string name="filter_schedule_scheduled_date">05/05/2023</string>
+    <string name="filter_schedule_standard_text">Obrigado pelo seu agendamento!</string>
+    <string name="filter_schedule_no_logged_distance">1,2km</string>
+    <string name="filter_schedule_finish_btn">Finalizar</string>
+
+    <!--filter finished standard texts-->
+    <string name="filter_finished_logged_user_logo">Usuario Logo</string>
+    <string name="filter_finished_no_logged_user_logo">Usuario não logado Logo</string>
+    <string name="filter_finished_logged_user_name">Nome do usuario logado</string>
+    <string name="filter_finished_logged_user_location">Restaurante Location</string>
+    <string name="filter_finished_no_logged_name">Restaurante 1</string>
+    <string name="filter_finished_data_de_agendamento">Data de agendamento:</string>
+    <string name="filter_finished_scheduled_date">05/05/2023</string>
+    <string name="filter_finished_standard_text">Obrigado pelo seu agendamento!</string>
+    <string name="filter_finished_no_logged_distance">1,2km</string>
+    <string name="filter_finished_finish_btn">Finalizar</string>
+
+    <!--filter all standard texts-->
+    <string name="filter_all_list_btn">List</string>
+    <string name="filter_all_grid_btn">Grid</string>
+    <string name="filter_all_contact_btn">Contato</string>
+    <string name="filter_all_no_logged_user_distance">1,2km</string>
+    <string name="filter_all_logged_user_logo">Usuario Logo</string>
+    <string name="filter_all_no_logged_user_name">Restaurante Name</string>
+    <string name="filter_all_logged_user_name">Nome Usuario Logado</string>
+    <string name="filter_all_logged_user_location">Restaurante Location</string>
+    <string name="filter_all_no_logged_user_slogan">Mais de 1K de alimentos doados</string>
+
+    <!--Othes standard texts-->
+    <string name="btn_voltar">Voltar</string>
+    <string name="hint_data">DD/MM/AA</string>
 </resources>
