@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         // Variáveis de exemplo de login e senha válidas
-        val validLogin = "user123"
+        val validLogin = "01.123.456/0001-10"
         val validPassword = "password123"
 
         // Simulação de busca das informações de login no banco de dados

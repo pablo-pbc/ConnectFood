@@ -60,7 +60,7 @@
                 app:mask="__.___.___/____-__"
                 app:maskCharacter="_"
                 android:singleLine="true"
-                android:textColor="@color/organgeConnectFood"/>
+                android:textColor="@color/orangeConnectFood"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

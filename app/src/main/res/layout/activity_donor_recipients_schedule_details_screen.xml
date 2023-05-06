@@ -298,7 +298,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
-                android:textColorHint="@color/organgeConnectFood"
+                android:textColorHint="@color/orangeConnectFood"
                 android:hint="@string/hint_data">
 
                 <com.santalu.maskara.widget.MaskEditText
@@ -310,7 +310,7 @@
                     app:mask="__/__/__"
                     app:maskCharacter="_"
                     android:singleLine="true"
-                    android:textColor="@color/organgeConnectFood"/>
+                    android:textColor="@color/orangeConnectFood"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
