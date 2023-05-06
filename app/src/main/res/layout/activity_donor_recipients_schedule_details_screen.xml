@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:scrollbars="none"
+    tools:context=".DonorRecipientsScheduleDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top|center"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/scheduleUserLogo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/rest_one"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/scheduleUserLoggedName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Authos's Cuisine"
+                    android:textColor="#F48C06"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textAlignment="center"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/scheduleUserLoggedLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Restaurante Location"
+                        android:textColor="#F48C06"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textAlignment="center"/>
+
+                    <ImageView
+                        android:id="@+id/imageLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_location_on_24"
+                        android:paddingLeft="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/scheduleUserBanner"
+            android:layout_width="match_parent"
+            android:layout_height="176dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingHorizontal="10dp">
+
+            <TextView
+                android:id="@+id/scheduleUserName"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Restaurante Name"
+                android:textColor="#F48C06"
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_bold"/>
+
+            <ImageView
+                android:id="@+id/listUserLike"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/liked"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/scheduleUserDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trabalhos com carnes e churrascos ao fim de semana, trazendo o melhor do churrasco para as pessoas."
+            android:textColor="#F48C06"
+            android:textSize="12dp"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginTop="2dp"
+            android:lineHeight="24dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"/>
+
+        <TextView
+            android:id="@+id/scheduleDonorRecipientContactText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entre em contato conosco e marque um horário para que possamos separar uma doação"
+            android:textColor="#F48C06"
+            android:textSize="12dp"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_marginTop="2dp"
+            android:lineHeight="24dp"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Endereço:"
+                android:textColor="#F48C06"
+                android:textSize="16dp"
+                android:lineHeight="24dp"
+                android:fontFamily="@font/roboto_bold"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_location_on_24"
+                    android:layout_gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/scheduleUserAdress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rua exemplo, 000 - Centro São Paulo \n SP - CEP: 00111-222"
+                        android:textColor="#F48C06"
+                        android:textSize="14dp"
+                        android:lineHeight="24dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contato:"
+                    android:textColor="#F48C06"
+                    android:textSize="16dp"
+                    android:lineHeight="24dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/whatsapp_circle"/>
+
+                    <TextView
+                        android:id="@+id/scheduleUserWhatsapp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="(11) 91234-5678"
+                        android:textColor="#F48C06"
+                        android:textSize="14dp"
+                        android:lineHeight="24dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/telephone"/>
+
+                    <TextView
+                        android:id="@+id/scheduleUserTelephone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="(11) 4545-9090"
+                        android:textColor="#F48C06"
+                        android:textSize="14dp"
+                        android:lineHeight="24dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="50dp"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data de coleta/entrega:"
+                android:textColor="#F48C06"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="16dp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/organgeConnectFood"
+                android:hint="DD/MM/AA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSignInCNPJ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/organgeConnectFood"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirmScheduleBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F48C06"
+            android:text="Confirmar agendamento"
+            android:fontFamily="@font/roboto_bold"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            app:cornerRadius="50dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:paddingVertical="12dp"/>
+
+        <LinearLayout
+            android:id="@+id/backScreenScheduleBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_arrow_back_24"
+                android:layout_gravity="center"
+                android:rotationY="180"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Voltar"
+                android:textColor="#F48C06"
+                android:textSize="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

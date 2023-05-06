@@ -15,31 +15,51 @@
         android:layout_marginEnd="22dp"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
+            android:src="@drawable/logo"
+            android:layout_marginTop="20dp"/>
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/checkBoxDoador"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="Doador"
+                android:textColor="@color/organgeConnectFood"
+                android:fontFamily="@font/roboto_bold"
+                android:buttonTint="@color/organgeConnectFood"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <CheckBox
+                android:id="@+id/checkBoxInstituicao"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Instituição"
+                android:textColor="@color/organgeConnectFood"
+                android:fontFamily="@font/roboto_bold"
+                android:buttonTint="@color/organgeConnectFood"/>
+
+        </LinearLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="10dp"
             android:hint="CNPJ"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/organgeConnectFood"
             app:boxStrokeErrorColor="#e63946"
-            app:boxStrokeColor="@color/black">
+            app:boxStrokeColor="@color/organgeConnectFood">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSignUpCNPJ"
@@ -47,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/organgeConnectFood" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,8 +77,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Email"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black">
+            android:textColorHint="@color/organgeConnectFood"
+            app:boxStrokeColor="@color/organgeConnectFood">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSignUpEmail"
@@ -66,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/organgeConnectFood" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,8 +96,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Telefone"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black">
+            android:textColorHint="@color/organgeConnectFood"
+            app:boxStrokeColor="@color/organgeConnectFood">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSignUpMobile"
@@ -85,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/organgeConnectFood" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,8 +120,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="CEP"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black">
+                android:textColorHint="@color/organgeConnectFood"
+                app:boxStrokeColor="@color/organgeConnectFood">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtSignUpCEP"
@@ -109,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:singleLine="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/organgeConnectFood" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,8 +140,8 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="10dp"
                 android:hint="Bairro"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black">
+                android:textColorHint="@color/organgeConnectFood"
+                app:boxStrokeColor="@color/organgeConnectFood">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtSignUpStreet"
@@ -129,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:singleLine="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/organgeConnectFood" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -141,8 +161,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Endereço"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black">
+            android:textColorHint="@color/organgeConnectFood"
+            app:boxStrokeColor="@color/organgeConnectFood">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSignUpAdress"
@@ -150,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/organgeConnectFood" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -165,8 +185,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Cidade"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black">
+                android:textColorHint="@color/organgeConnectFood"
+                app:boxStrokeColor="@color/organgeConnectFood">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtSignUpBairro"
@@ -174,7 +194,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:singleLine="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/organgeConnectFood" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,8 +205,8 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="10dp"
                 android:hint="Estado"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black">
+                android:textColorHint="@color/organgeConnectFood"
+                app:boxStrokeColor="@color/organgeConnectFood">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtSignUpCity"
@@ -194,7 +214,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:singleLine="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/organgeConnectFood" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -206,8 +226,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Password"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
+            android:textColorHint="@color/organgeConnectFood"
+            app:boxStrokeColor="@color/organgeConnectFood"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -216,7 +236,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/organgeConnectFood" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -226,8 +246,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Confirm Password"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
+            android:textColorHint="@color/organgeConnectFood"
+            app:boxStrokeColor="@color/organgeConnectFood"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -236,7 +256,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/organgeConnectFood" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -275,7 +295,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Já possui uma conta ?"
-                android:textColor="@color/black"
+                android:textColor="@color/organgeConnectFood"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp" />
 

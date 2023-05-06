@@ -1,32 +1,32 @@
 package com.example.connectfood
 
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import android.view.animation.AnimationUtils
 import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import java.util.*
 
 @Suppress("DEPRECATION")
-class DonorRecipientsListActivity : AppCompatActivity() {
+class DonorRecipientsScheduleDetailsActivity : AppCompatActivity() {
 
+    @SuppressLint("MissingInflatedId")
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_donor_recipients_list_screen)
+        setContentView(R.layout.activity_donor_recipients_schedule_details_screen)
 
         val myImageView: ImageView = findViewById(R.id.my_image_view)
+        val imageListView: ImageView = findViewById(R.id.image_list_view)
+        val imageUrl = "https://www.palpitedigital.com/y/5327/imagens-google-e1604596848141.jpg"
 
         Glide.with(this)
-            .load("https://www.palpitedigital.com/y/5327/imagens-google-e1604596848141.jpg")
-            .centerCrop()
-            .transform(RoundedCorners(16))
+            .load(imageUrl)
+            .transform(CenterCrop(), RoundedCorners(25))
             .into(myImageView)
     }
 }

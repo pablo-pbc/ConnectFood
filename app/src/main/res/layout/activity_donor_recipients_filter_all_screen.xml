@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:scrollbars="none"
-    tools:context=".DonorRecipientsListActivity">
+    tools:context=".DonorRecipientsFilterAllActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top|center"
         android:orientation="vertical"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -183,20 +184,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_gravity="center"
-                    android:paddingHorizontal="10dp">
+                    android:paddingHorizontal="0dp">
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:src="@drawable/foodTeste"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:adjustViewBounds="true"/>-->
 
                     <ImageView
                         android:id="@+id/my_image_view"
                         android:layout_width="176dp"
                         android:layout_height="176dp"
-                        android:background="@drawable/shape_img_list" />
+                        android:layout_gravity="center" />
 
 
                     <LinearLayout
@@ -204,7 +199,8 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="10dp"
+                        android:paddingHorizontal="10dp">
 
                         <TextView
                             android:id="@+id/listUserName"
@@ -232,14 +228,16 @@
                         android:textColor="#F48C06"
                         android:textSize="10dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:layout_marginTop="2dp"/>
+                        android:layout_marginTop="2dp"
+                        android:layout_marginHorizontal="10dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="10dp"
+                        android:paddingHorizontal="10dp">
 
                         <ImageView
                             android:id="@+id/listUserLocationIcon"
@@ -278,12 +276,11 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_gravity="center"
-                    android:paddingHorizontal="10dp">
+                    android:layout_gravity="center">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="176dp"
+                        android:layout_height="176dp"
                         android:src="@drawable/food"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"/>
@@ -293,7 +290,8 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="10dp"
+                        android:paddingHorizontal="10dp">
 
                         <TextView
                             android:id="@+id/listUserName1"
@@ -321,14 +319,16 @@
                         android:textColor="#F48C06"
                         android:textSize="10dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:layout_marginTop="2dp"/>
+                        android:layout_marginTop="2dp"
+                        android:layout_marginHorizontal="10dp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="10dp"
+                        android:paddingHorizontal="10dp">
 
                         <ImageView
                             android:id="@+id/listUserLocationIcon1"
@@ -349,6 +349,101 @@
 
                         <TextView
                             android:id="@+id/listUserContact1"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Contato"
+                            android:textColor="#F48C06"
+                            android:textSize="10dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textAlignment="textEnd"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="10dp">
+
+                    <ImageView
+                        android:id="@+id/image_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="176dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/listUserName2"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Restaurante Name"
+                            android:textColor="#F48C06"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_bold"/>
+
+                        <ImageView
+                            android:id="@+id/listUserLike2"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/not_liked"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/listUserSlogan2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mais de 1K de alimentos doados"
+                        android:textColor="#F48C06"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_marginTop="2dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/listUserLocationIcon2"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/baseline_location_on_24"
+                            android:layout_gravity="center_vertical"/>
+
+                        <TextView
+                            android:id="@+id/listUserDistance2"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="1,2km"
+                            android:textColor="#F48C06"
+                            android:textSize="10dp"
+                            android:fontFamily="@font/roboto_regular"/>
+
+                        <TextView
+                            android:id="@+id/listUserContact2"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"

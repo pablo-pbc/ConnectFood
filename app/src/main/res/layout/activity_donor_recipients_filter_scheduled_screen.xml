@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:scrollbars="none"
+    tools:context=".DonorRecipientsFilterAllActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top|center"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/filterScheduleLoggedUserLogo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/rest_one"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/filterScheduleLoggedUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Authos's Cuisine"
+                    android:textColor="#F48C06"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textAlignment="center"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/filterScheduleLoggedUserLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Restaurante Location"
+                        android:textColor="#F48C06"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textAlignment="center"/>
+
+                    <ImageView
+                        android:id="@+id/imageLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_location_on_24"
+                        android:paddingLeft="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="20dp">
+
+            <TextView
+                android:id="@+id/filterAll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Todos"
+                android:textColor="#F48C06"
+                android:textSize="14dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/filterSchedule"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Agendados"
+                android:textColor="#F48C06"
+                android:textSize="14dp"
+                android:fontFamily="@font/roboto_bold"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/filterFinished"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Finalizados"
+                android:textColor="#F48C06"
+                android:textSize="14dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFBB63"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/filterScheduleListUserLogo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/rest_one"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/filterScheduleListUserName"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="16dp"
+                        android:text="Restaurante 1"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/liked"
+                        android:textAlignment="textEnd"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="12dp"
+                        android:text="Data de agendamento:"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/listScheduleDate"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="12dp"
+                        android:text="05/05/2023"
+                        android:textAlignment="textEnd"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/organgeConnectFood"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="12dp"
+                    android:text="Obrigado pelo seu agendamento!"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_location_on_24"
+                        android:layout_gravity="start|center"/>
+
+                    <TextView
+                        android:id="@+id/listScheduleUserDistance"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="12dp"
+                        android:text="1,2km"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="10dp"/>
+
+                    <TextView
+                        android:id="@+id/listScheduleFinishBtn"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="12dp"
+                        android:text="Finalizar"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFBB63"
+            android:layout_marginVertical="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/filterScheduleListUserLog"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/rest_one"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/filterScheduleListUserNam"
+                        android:layout_width="0dp"
+                        android:layout_weight="4"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="16dp"
+                        android:text="Restaurante 2"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="22dp"
+                        android:src="@drawable/not_liked"
+                        android:textAlignment="textEnd"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="12dp"
+                        android:text="Data de agendamento:"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/listScheduleDat"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="12dp"
+                        android:text="05/05/2023"
+                        android:textAlignment="textEnd"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/organgeConnectFood"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="12dp"
+                    android:text="Obrigado pelo seu agendamento!"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_location_on_24"
+                        android:layout_gravity="start|center"/>
+
+                    <TextView
+                        android:id="@+id/listScheduleUserDistanc"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="12dp"
+                        android:text="1,2km"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="10dp"/>
+
+                    <TextView
+                        android:id="@+id/listScheduleFinishBt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/organgeConnectFood"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="12dp"
+                        android:text="Finalizar"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFBB63"
+            android:layout_marginVertical="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/backScreenListScheduleBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_arrow_back_24"
+                android:layout_gravity="center"
+                android:rotationY="180"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Voltar"
+                android:textColor="#F48C06"
+                android:textSize="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
