@@ -1,14 +1,9 @@
 package com.example.connectfood
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.ImageDecoder
-import android.graphics.drawable.AnimatedImageDrawable
-import android.os.Build
 import android.os.Bundle
-import android.os.Handler
+import android.util.Log
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 
 @Suppress("DEPRECATION")
@@ -19,34 +14,38 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         // Variáveis de exemplo de login e senha válidas
-        val validLogin = "01.123.456/0001-10"
+        val validLogin = "01123456000110"
         val validPassword = "password123"
 
-        // Simulação de busca das informações de login no banco de dados
+        //Identificando os campos de login e senha
+        val loginInput = findViewById<EditText>(R.id.signInLoginInput)
+        val passwordInput = findViewById<EditText>(R.id.signInPasswordInput)
+
+        //Pegando os valores informados pelo usuário
+        val inputedlogin = loginInput.text.toString()
+        val password = passwordInput.text.toString()
+
+        // Formatando o login do usuario 01.123.456/0001-10 -> 01123456000110
+        val formatedLogin = inputedlogin.replace("[^0-9]".toRegex(), "")
+
+        // Função para validação do login do usuário, aqui tem que usar algum método de autentificação
         fun validateLogin(login: String, password: String): Boolean {
-            // Aqui seria o código para buscar as informações no banco de dados
-            // Neste exemplo, apenas compararemos com as variáveis de exemplo
             return login == validLogin && password == validPassword
         }
 
         // Função para realizar a validação e exibir mensagem de erro caso necessário
         fun signIn() {
-            val loginInput = findViewById<EditText>(R.id.signInLoginInput)
-            val passwordInput = findViewById<EditText>(R.id.signInPasswordInput)
-
-            val login = loginInput.text.toString()
-            val password = passwordInput.text.toString()
-
-            if (validateLogin(login, password)) {
+            if (validateLogin(formatedLogin, password)) {
                 // Caso as informações de login sejam válidas, realizar a ação desejada
-                Toast.makeText(this, "Login realizado com sucesso", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show()
 
+                // Indo para a próxima tela
                 val helloScreen = Intent(this, DonorRecipientsHelloScrActivity::class.java)
+                intent.putExtra("login", formatedLogin)
                 startActivity(helloScreen)
-
             } else {
                 // Caso as informações de login sejam inválidas, exibir mensagem de erro
-                Toast.makeText(this, "Login ou senha inválidos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Login ou senha incorreto!", Toast.LENGTH_SHORT).show()
             }
         }
 
