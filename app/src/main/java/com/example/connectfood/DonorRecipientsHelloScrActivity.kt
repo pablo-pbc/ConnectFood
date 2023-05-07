@@ -18,6 +18,11 @@ class DonorRecipientsHelloScrActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_donor_recipients_hello_screen)
 
+        /*
+        * Trazer as informações do usario para colocar o nome dele, foto e slogan
+        * Lembrar de ativar o GLIDE
+        * */
+
         val SPLASH_DELAY = 5000 // 3 seconds
         val TEXT_DELAY = 2500 // 3 seconds
         val intentionMessageTitle: TextView = findViewById(R.id.helloScreenStandarTileMessage)

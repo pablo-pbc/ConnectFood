@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
                 // Indo para a próxima tela
                 val helloScreen = Intent(this, DonorRecipientsHelloScrActivity::class.java)
-                intent.putExtra("login", formatedLogin)
+                helloScreen.putExtra("login", formatedLogin)
                 startActivity(helloScreen)
             } else {
                 // Caso as informações de login sejam inválidas, exibir mensagem de erro

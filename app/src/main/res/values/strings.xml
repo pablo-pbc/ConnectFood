@@ -27,10 +27,12 @@
     <string name="sign_up_telefone">Telefone</string>
     <string name="sign_up_password">Password</string>
     <string name="sign_up_doador_checkbox">Doador</string>
+    <string name="sign_up_complemento">Complemento</string>
     <string name="sign_up_confirm_password">Confirm Password</string>
     <string name="sign_up_instituicao_check_box">Instituição</string>
     <string name="sign_up_possui_conta">Já possui uma conta ?</string>
     <string name="sign_up_question">Não possue cadastro ainda?</string>
+    <string name="sign_up_regra_senha">Senha com no mínimo:\n\nMínimo 8 caracteres\nUma letra maiúscula\nUma letra mínúscula\nUm número</string>
 
     <!--Layout schedule details xml standard texts-->
     <string name="schedule_details_confirm_btn">Confirmar agendamento</string>
@@ -102,4 +104,5 @@
     <!--Othes standard texts-->
     <string name="btn_voltar">Voltar</string>
     <string name="hint_data">DD/MM/AA</string>
+
 </resources>

@@ -49,7 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:hint="@string/sign_in_input_login_hint"
-            app:boxStrokeColor="#D9D9D9">
+            app:hintTextColor="@color/orangeConnectFood"
+            android:textColorHint="@color/orangeConnectFood"
+            app:boxStrokeColor="@color/orangeConnectFood">
 
             <com.santalu.maskara.widget.MaskEditText
                 android:id="@+id/signInLoginInput"
@@ -79,6 +81,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:hint="@string/sign_in_input_password_hint"
+            app:hintTextColor="@color/orangeConnectFood"
+            android:textColorHint="@color/orangeConnectFood"
+            app:boxStrokeColor="@color/orangeConnectFood"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
