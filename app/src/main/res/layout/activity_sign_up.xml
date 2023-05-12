@@ -58,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="@string/sign_up_cnpj"
+            app:hintTextColor="@color/orangeConnectFood"
             android:textColorHint="@color/orangeConnectFood"
             app:boxStrokeColor="@color/orangeConnectFood">
 
@@ -80,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/sign_up_email"
+            app:hintTextColor="@color/orangeConnectFood"
             android:textColorHint="@color/orangeConnectFood"
             app:boxStrokeColor="@color/orangeConnectFood">
 
@@ -99,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/sign_up_telefone"
+            app:hintTextColor="@color/orangeConnectFood"
             android:textColorHint="@color/orangeConnectFood"
             app:boxStrokeColor="@color/orangeConnectFood">
 
@@ -126,6 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/sign_up_cep"
+                app:hintTextColor="@color/orangeConnectFood"
                 android:textColorHint="@color/orangeConnectFood"
                 app:boxStrokeColor="@color/orangeConnectFood">
 
@@ -149,6 +153,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="10dp"
                 android:hint="@string/sign_up_bairro"
+                app:hintTextColor="@color/orangeConnectFood"
                 android:textColorHint="@color/orangeConnectFood"
                 app:boxStrokeColor="@color/orangeConnectFood">
 
@@ -171,6 +176,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/sign_up_endereco"
+            app:hintTextColor="@color/orangeConnectFood"
             android:textColorHint="@color/orangeConnectFood"
             app:boxStrokeColor="@color/orangeConnectFood">
 
@@ -179,7 +185,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:maxLength="30"
+                android:singleLine="true"
+                android:textColor="@color/orangeConnectFood" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/sign_up_complemento"
+            app:hintTextColor="@color/orangeConnectFood"
+            android:textColorHint="@color/orangeConnectFood"
+            app:boxStrokeColor="@color/orangeConnectFood">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signUpInputComplemento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
                 android:singleLine="true"
                 android:textColor="@color/orangeConnectFood" />
 
@@ -196,6 +221,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/sign_up_cidade"
+                app:hintTextColor="@color/orangeConnectFood"
                 android:textColorHint="@color/orangeConnectFood"
                 app:boxStrokeColor="@color/orangeConnectFood">
 
@@ -217,6 +243,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="10dp"
                 android:hint="@string/sign_up_estado"
+                app:hintTextColor="@color/orangeConnectFood"
                 android:textColorHint="@color/orangeConnectFood"
                 app:boxStrokeColor="@color/orangeConnectFood">
 
@@ -239,6 +266,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/sign_up_password"
+            app:hintTextColor="@color/orangeConnectFood"
             android:textColorHint="@color/orangeConnectFood"
             app:boxStrokeColor="@color/orangeConnectFood"
             app:passwordToggleEnabled="true">
@@ -253,12 +281,24 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/signUpPasswordRules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_regra_senha"
+            android:textColor="@color/orangeConnectFood"
+            android:lineHeight="20sp"
+            android:fontFamily="@font/roboto_italic"
+            android:textSize="12sp"
+            android:visibility="gone"/>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/sign_up_confirm_password"
+            app:hintTextColor="@color/orangeConnectFood"
             android:textColorHint="@color/orangeConnectFood"
             app:boxStrokeColor="@color/orangeConnectFood"
             app:passwordToggleEnabled="true">

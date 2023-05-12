@@ -9,5 +9,6 @@ data class Empresa(
     val uf: String?,
     val cep: String?,
     val email: String?,
-    val telefone: String?
+    val telefone: String?,
+    val message: String?
 )
