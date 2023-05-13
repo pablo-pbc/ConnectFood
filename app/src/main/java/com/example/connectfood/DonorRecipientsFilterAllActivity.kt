@@ -22,16 +22,16 @@ class DonorRecipientsFilterAllActivity : AppCompatActivity() {
 
         val myImageView: ImageView = findViewById(R.id.filterAllNoLoggedUserGridLogo)
         val imageListView: ImageView = findViewById(R.id.filterAllNoLoggedUserListLogo)
-        val imageUrl = "https://www.palpitedigital.com/y/5327/imagens-google-e1604596848141.jpg"
+        val imageUrl = "https://img.freepik.com/vetores-premium/modelo-de-design-de-logotipo-de-restaurante_79169-56.jpg?w=2000"
 
         Glide.with(this)
             .load(imageUrl)
-            .transform(CenterCrop(), RoundedCorners(25))
+            .transform(RoundedCorners(25))
             .into(myImageView)
 
         Glide.with(this)
             .load(imageUrl)
-            .transform(CenterCrop(), RoundedCorners(25))
+            .transform(RoundedCorners(25))
             .into(imageListView)
     }
 }

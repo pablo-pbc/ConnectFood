@@ -59,6 +59,7 @@
             android:layout_height="220dp"
             android:src="@drawable/rest_one"
             android:paddingStart="10dp"
+            android:scaleType="fitCenter"
             android:contentDescription="@string/hello_screen_user_logged_logo"
             tools:ignore="RtlSymmetry" />
 
