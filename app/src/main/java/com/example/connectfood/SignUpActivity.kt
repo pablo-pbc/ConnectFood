@@ -9,8 +9,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 import okhttp3.*
@@ -59,29 +57,26 @@ class SignUpActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call, response: Response) {
                     val json = response.body?.string()
-                    val empresa = Gson().fromJson(json, Empresa::class.java)
-                    val error = empresa.message
-                    if (error != null) {
-                        Log.d(error, error)
-                    }
+                    val empresaCadastro = Gson().fromJson(json, EmpresaCadastro::class.java)
+                    val error = empresaCadastro.message
 
                     if (error.equals("CNPJ inválido")) {
                         runOnUiThread{
                             Toast.makeText(this@SignUpActivity, "CNPJ não encontrado", Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        val rua = empresa.logradouro
-                        val numeroEmpresa = empresa.numero
+                        val rua = empresaCadastro.logradouro
+                        val numeroEmpresa = empresaCadastro.numero
                         val enderecoCompleto = "$rua, $numeroEmpresa"
 
                         runOnUiThread {
-                            inputEmail.setText(empresa.email)
-                            inputTelefone.setText(empresa.telefone)
-                            inputCEP.setText(empresa.cep)
-                            inputBairro.setText(empresa.bairro)
-                            inputCidade.setText(empresa.municipio)
-                            inputEstado.setText(empresa.uf)
-                            inputComplemento.setText(empresa.complemento)
+                            inputEmail.setText(empresaCadastro.email)
+                            inputTelefone.setText(empresaCadastro.telefone)
+                            inputCEP.setText(empresaCadastro.cep)
+                            inputBairro.setText(empresaCadastro.bairro)
+                            inputCidade.setText(empresaCadastro.municipio)
+                            inputEstado.setText(empresaCadastro.uf)
+                            inputComplemento.setText(empresaCadastro.complemento)
                             inputEndereco.setText(enderecoCompleto)
                         }
                     }
@@ -96,7 +91,7 @@ class SignUpActivity : AppCompatActivity() {
                 val stringCNPJ = inputCNPJ.text.toString()
                 if (stringCNPJ.isNotEmpty()) {
                     //Formando o CNPJ para fazer o request : 01.123.456/0001-10 -> 01123456000110
-                    val formatedCNPJ = stringCNPJ.replace("[^0-9]".toRegex(), "")
+                    val formatedCNPJ = stringCNPJ.replace("\\D".toRegex(), "")
                     requestCNPJ (formatedCNPJ)
                 } else {
                     Toast.makeText(this, "Preencha o CNPJ corretamente!", Toast.LENGTH_SHORT).show()
@@ -124,9 +119,9 @@ class SignUpActivity : AppCompatActivity() {
         btnSignUp.setOnClickListener{
 
             //Pegando os textos de todos os inputs
-            val stringCNPJ = inputCNPJ.text.toString().replace("[^0-9]".toRegex(), "")
+            val stringCNPJ = inputCNPJ.text.toString().replace("\\D".toRegex(), "")
             val stringEmail = inputEmail.text.toString()
-            val stringTelefone = inputTelefone.text.toString().replace("[^0-9]".toRegex(), "")
+            val stringTelefone = inputTelefone.text.toString().replace("\\D".toRegex(), "")
             val stringCEP = inputCEP.text.toString()
             val stringBairro = inputBairro.text.toString()
             val stringEndereco = inputEndereco.text.toString()
@@ -152,7 +147,7 @@ class SignUpActivity : AppCompatActivity() {
 
             //Função para requisitos minimos de senha
             fun validarSenha(stringPassword: String): Boolean {
-                val regex = Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$")
+                val regex = Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{8,}$")
                 return regex.matches(stringPassword)
             }
 

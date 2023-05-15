@@ -1,0 +1,177 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/filteredBlock"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginVertical="5dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFBB63"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/filteredUserLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/rest_one"
+            android:contentDescription="@string/filter_type_no_logged_user_logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/filteredUserName"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orangeConnectFood"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="16sp"
+                    android:text="@string/filter_type_no_logged_name"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/liked"
+                    android:textAlignment="textEnd"
+                    android:contentDescription="@string/liked_icon" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filteredScheduledDateLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orangeConnectFood"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="12sp"
+                    android:text="@string/filter_type_data_de_agendamento"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/filteredScheduledDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orangeConnectFood"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="12sp"
+                    android:text="@string/filter_type_scheduled_date"
+                    android:textAlignment="textEnd"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/filteredFinishedDateLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orangeConnectFood"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="12sp"
+                    android:text="@string/filter_type_data_de_encerramento"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/filteredFinishedDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orangeConnectFood"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="12sp"
+                    android:text="@string/filter_type_scheduled_date"
+                    android:textAlignment="textEnd"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/filterStandardText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orangeConnectFood"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="12sp"
+                android:text="@string/filter_type_standard_text"
+                android:layout_gravity="center"
+                android:layout_marginVertical="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_location_on_24"
+                    android:layout_gravity="start|center"
+                    android:contentDescription="@string/location_icon" />
+
+                <TextView
+                    android:id="@+id/filteredUserDistance"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orangeConnectFood"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="12sp"
+                    android:text="@string/filter_type_no_logged_distance"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="10dp"/>
+
+                <TextView
+                    android:id="@+id/filteredBtn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orangeConnectFood"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="12sp"
+                    android:text="@string/filter_type_finish_btn"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFBB63"/>
+
+</LinearLayout>
