@@ -10,18 +10,15 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import org.w3c.dom.Text
 import java.util.*
 
 @Suppress("DEPRECATION")
-class DonorRecipientsHelloScrActivity : AppCompatActivity() {
+class DonorReciversHelloScrActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_donor_recipients_hello_screen)
+        setContentView(R.layout.activity_donor_recivers_hello_screen)
 
         /*
         * Trazer as informações do usario para colocar o nome dele, foto e slogan
@@ -86,7 +83,7 @@ class DonorRecipientsHelloScrActivity : AppCompatActivity() {
 
             //Timer Function to navigate to the next screen after a while
             timerTwo.postDelayed({
-                val intent = Intent(this, DonorRecipientsFilterAllActivity::class.java)
+                val intent = Intent(this, DonorReciversFilterAllActivity::class.java)
                 startActivity(intent)
                 finish()
             }, SPLASH_DELAY.toLong())

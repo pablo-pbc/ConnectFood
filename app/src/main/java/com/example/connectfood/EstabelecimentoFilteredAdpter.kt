@@ -1,10 +1,12 @@
 package com.example.connectfood
 
+import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -42,6 +44,9 @@ class EstabelecimentoFilteredAdapter(private val estabelecimentosFiltered: List<
         private val dataTextView = itemView.findViewById<TextView>(R.id.filteredScheduledDate)
         private val distanciaTextView = itemView.findViewById<TextView>(R.id.filteredUserDistance)
         private val button = itemView.findViewById<TextView>(R.id.filteredBtn)
+        private val finishedLayoutData = itemView.findViewById<LinearLayout>(R.id.filteredFinishedDateLayout)
+        private val finishedData = itemView.findViewById<TextView>(R.id.filteredFinishedDate)
+        private var visibility = false
 
         // bindView updates the views in the view holder with the information from the given estabelecimento
         fun bindView(estabelecimento: EstabelecimentoFiltered) {
@@ -49,6 +54,10 @@ class EstabelecimentoFilteredAdapter(private val estabelecimentosFiltered: List<
             dataTextView.text = estabelecimento.dataAgendamento
             distanciaTextView.text = estabelecimento.distancia
             button.text = estabelecimento.txtBtn
+            visibility = estabelecimento.visibility
+            finishedData.text = estabelecimento.dataEncerramento
+
+            if (!visibility) finishedLayoutData.visibility = View.VISIBLE else finishedLayoutData.visibility = View.GONE
 
             //Glide to set the img
             Glide.with(this.itemView)

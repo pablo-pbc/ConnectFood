@@ -12,13 +12,13 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import java.util.*
 
 @Suppress("DEPRECATION")
-class DonorRecipientsScheduleDetailsActivity : AppCompatActivity() {
+class DonorReciversScheduleDetailsActivity : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_donor_recipients_schedule_details_screen)
+        setContentView(R.layout.activity_donor_recivers_schedule_details_screen)
 
         val filterAllNoLoggedUserGridLogo = findViewById<ImageView>(R.id.filterAllNoLoggedUserLogo)
         val imageListView = findViewById<ImageView>(R.id.filterAllNoLoggedUserLogo)
