@@ -1,10 +1,8 @@
 package com.example.connectfood
 
 import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -16,7 +14,7 @@ import com.google.android.material.button.MaterialButton
 import java.util.*
 
 @Suppress("DEPRECATION")
-class DonorReciversFilterAllActivity : AppCompatActivity() {
+class DonorReceiversFilterAllActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var AllEstabelecimentos: List<EstabelecimentoAll>
@@ -54,7 +52,7 @@ class DonorReciversFilterAllActivity : AppCompatActivity() {
         fun allDonorReciverList () {
             AllEstabelecimentos = listOf(
                 EstabelecimentoAll("Restaurante 1", "Comida boa", "1 km", imageUrl),
-                EstabelecimentoAll("Restaurante 2", "Comida barata", "2 km", imageUrl),
+                EstabelecimentoAll("Restaurante 2", "Comida barata", "2 km", imageUrlFiltered),
                 EstabelecimentoAll("Restaurante 3", "Comida gostosa", "3 km", imageUrl),
                 EstabelecimentoAll("Restaurante 4", "Comida rápida", "4 km", imageUrl),
                 EstabelecimentoAll("Restaurante 5", "Comida saudável", "5 km", imageUrl)

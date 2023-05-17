@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show()
 
                 // Going to the next screen
-                val helloScreen = Intent(this, DonorReciversHelloScrActivity::class.java)
+                val helloScreen = Intent(this, DonorReceiversHelloScrActivity::class.java)
                 helloScreen.putExtra("login", formatedLogin)
                 startActivity(helloScreen)
             } else {

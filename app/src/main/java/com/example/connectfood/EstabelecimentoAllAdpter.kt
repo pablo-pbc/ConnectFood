@@ -1,5 +1,6 @@
 package com.example.connectfood
 
+import android.content.Intent
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import android.view.LayoutInflater
@@ -11,6 +12,13 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class EstabelecimentoAllAdapter(private val estabelecimentos: List<EstabelecimentoAll>) :
     RecyclerView.Adapter<EstabelecimentoAllAdapter.EstabelecimentoViewHolder>() {
+
+    // Interface for button click events
+    interface OnContatoButtonClickListener {
+        fun onContatoButtonClick(estabelecimento: EstabelecimentoAll)
+    }
+
+    private var onContatoButtonClickListener: OnContatoButtonClickListener? = null
 
     // onCreateViewHolder is called when the RecyclerView needs a new view holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EstabelecimentoViewHolder {
@@ -35,28 +43,29 @@ class EstabelecimentoAllAdapter(private val estabelecimentos: List<Estabelecimen
 
     // EstabelecimentoViewHolder is a view holder for a single estabelecimento item in the list
     class EstabelecimentoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        // Get references to the views in the view holder's layout
         private val logoImageView = itemView.findViewById<ImageView>(R.id.filterAllNoLoggedUserLogo)
         private val nomeTextView = itemView.findViewById<TextView>(R.id.filterAllNoLoggedUserName)
         private val sloganTextView = itemView.findViewById<TextView>(R.id.filterAllNoLoggedUserSlogan)
         private val distanciaTextView = itemView.findViewById<TextView>(R.id.filterAllNoLoggedUserDistance)
         private val contatoButton = itemView.findViewById<TextView>(R.id.filterAllNoLoggedContactBtn)
 
-        // bindView updates the views in the view holder with the information from the given estabelecimento
         fun bindView(estabelecimento: EstabelecimentoAll) {
             nomeTextView.text = estabelecimento.nome
             sloganTextView.text = estabelecimento.slogan
             distanciaTextView.text = estabelecimento.distancia
 
-            //Glide to set the img
-            Glide.with(this.itemView)
+            // Use Glide to load the image
+            Glide.with(itemView)
                 .load(estabelecimento.photo)
                 .transform(RoundedCorners(25))
                 .into(logoImageView)
 
+            // Handle button click event
             contatoButton.setOnClickListener {
-                // ação a ser executada ao clicar no botão
+                // Going to the next screen
+                val details = Intent(itemView.context, DonorReceiversScheduleDetailsActivity::class.java)
+                details.putExtra("urlImage", estabelecimento.photo)
+                itemView.context.startActivity(details)
             }
         }
     }
