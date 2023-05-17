@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 import java.util.*
 
 @Suppress("DEPRECATION")
-class DonorReciversHelloScrActivity : AppCompatActivity() {
+class DonorReceiversHelloScrActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,7 +83,7 @@ class DonorReciversHelloScrActivity : AppCompatActivity() {
 
             //Timer Function to navigate to the next screen after a while
             timerTwo.postDelayed({
-                val intent = Intent(this, DonorReciversFilterAllActivity::class.java)
+                val intent = Intent(this, DonorReceiversFilterAllActivity::class.java)
                 startActivity(intent)
                 finish()
             }, SPLASH_DELAY.toLong())
