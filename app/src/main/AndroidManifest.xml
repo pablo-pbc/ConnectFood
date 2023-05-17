@@ -43,7 +43,7 @@
         </activity>
 
         <activity
-            android:name=".DonorRecipientsHelloScrActivity"
+            android:name=".DonorReciversHelloScrActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +53,7 @@
         </activity>
 
         <activity
-            android:name=".DonorRecipientsFilterAllActivity"
+            android:name=".DonorReciversFilterAllActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

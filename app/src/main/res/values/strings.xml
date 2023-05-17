@@ -51,7 +51,7 @@
     <string name="label_adress">Endereço:</string>
     <string name="label_contact">Contato:</string>
     <string name="label_user_login">CNPJ:</string>
-    <string name="label_filter_all">Todos</string>
+    <string name="label_filter_all"><u>Todos</u></string>
     <string name="label_user_password">Senha:</string>
     <string name="label_filter_scheduled">Agendados</string>
     <string name="label_filter_finished">Finalizados</string>
@@ -67,16 +67,17 @@
     <string name="hello_screen_standard_text_two">Pode colocar um sorriso no rosto de alguém. Doe!</string>
 
     <!--filter schedule standard texts-->
-    <string name="filter_schedule_logged_user_logo">Usuario Logo</string>
-    <string name="filter_schedule_no_logged_user_logo">Usuario não logado Logo</string>
-    <string name="filter_schedule_logged_user_name">Nome do usuario logado</string>
-    <string name="filter_schedule_logged_user_location">Restaurante Location</string>
-    <string name="filter_schedule_no_logged_name">Restaurante 1</string>
-    <string name="filter_schedule_data_de_agendamento">Data de agendamento:</string>
-    <string name="filter_schedule_scheduled_date">05/05/2023</string>
-    <string name="filter_schedule_standard_text">Obrigado pelo seu agendamento!</string>
-    <string name="filter_schedule_no_logged_distance">1,2km</string>
-    <string name="filter_schedule_finish_btn">Finalizar</string>
+    <string name="filter_type_logged_user_logo">Usuario Logo</string>
+    <string name="filter_type_no_logged_user_logo">Usuario não logado Logo</string>
+    <string name="filter_type_logged_user_name">Nome do usuario logado</string>
+    <string name="filter_type_logged_user_location">Restaurante Location</string>
+    <string name="filter_type_no_logged_name">Restaurante 1</string>
+    <string name="filter_type_data_de_agendamento">Data de agendamento:</string>
+    <string name="filter_type_data_de_encerramento">Data de encerramento:</string>
+    <string name="filter_type_scheduled_date">05/05/2023</string>
+    <string name="filter_type_standard_text">Obrigado pelo seu agendamento!</string>
+    <string name="filter_type_no_logged_distance">1,2km</string>
+    <string name="filter_type_finish_btn">Finalizar</string>
 
     <!--filter finished standard texts-->
     <string name="filter_finished_logged_user_logo">Usuario Logo</string>

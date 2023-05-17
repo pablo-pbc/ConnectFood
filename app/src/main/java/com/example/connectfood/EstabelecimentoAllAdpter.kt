@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
-class EstabelecimentoAdapter(private val estabelecimentos: List<Estabelecimento>) :
-    RecyclerView.Adapter<EstabelecimentoAdapter.EstabelecimentoViewHolder>() {
+class EstabelecimentoAllAdapter(private val estabelecimentos: List<EstabelecimentoAll>) :
+    RecyclerView.Adapter<EstabelecimentoAllAdapter.EstabelecimentoViewHolder>() {
 
     // onCreateViewHolder is called when the RecyclerView needs a new view holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EstabelecimentoViewHolder {
@@ -42,10 +42,9 @@ class EstabelecimentoAdapter(private val estabelecimentos: List<Estabelecimento>
         private val sloganTextView = itemView.findViewById<TextView>(R.id.filterAllNoLoggedUserSlogan)
         private val distanciaTextView = itemView.findViewById<TextView>(R.id.filterAllNoLoggedUserDistance)
         private val contatoButton = itemView.findViewById<TextView>(R.id.filterAllNoLoggedContactBtn)
-        private val widthType = itemView.findViewById<View>(R.id.filterAllNoLoggedUserLogo)
 
         // bindView updates the views in the view holder with the information from the given estabelecimento
-        fun bindView(estabelecimento: Estabelecimento) {
+        fun bindView(estabelecimento: EstabelecimentoAll) {
             nomeTextView.text = estabelecimento.nome
             sloganTextView.text = estabelecimento.slogan
             distanciaTextView.text = estabelecimento.distancia

@@ -1,6 +1,6 @@
 package com.example.connectfood
 
-data class Empresa(
+data class EmpresaCadastro(
     val logradouro: String?,
     val numero: String?,
     val complemento: String?,

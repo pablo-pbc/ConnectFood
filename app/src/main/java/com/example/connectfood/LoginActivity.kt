@@ -2,7 +2,6 @@ package com.example.connectfood
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
@@ -21,8 +20,6 @@ class LoginActivity : AppCompatActivity() {
         val loginInput = findViewById<EditText>(R.id.signInLoginInput)
         val passwordInput = findViewById<EditText>(R.id.signInPasswordInput)
 
-
-
         // Function to validate the user's login, here we have to use some auth method
         fun validateLogin(login: String, password: String): Boolean {
             return login == validLogin && password == validPassword
@@ -35,14 +32,14 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordInput.text.toString()
 
             // Formatting the user login 01.123.456/0001-10 -> 01123456000110
-            val formatedLogin = inputedlogin.replace("[^0-9]".toRegex(), "")
+            val formatedLogin = inputedlogin.replace("\\D".toRegex(), "")
 
             if (validateLogin(formatedLogin, password)) {
                 // In case of correct login and password
                 Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show()
 
                 // Going to the next screen
-                val helloScreen = Intent(this, DonorRecipientsHelloScrActivity::class.java)
+                val helloScreen = Intent(this, DonorReciversHelloScrActivity::class.java)
                 helloScreen.putExtra("login", formatedLogin)
                 startActivity(helloScreen)
             } else {

@@ -1,6 +1,6 @@
 package com.example.connectfood
 
-data class Estabelecimento(
+data class EstabelecimentoAll(
     val nome: String,
     val slogan: String,
     val distancia: String,
