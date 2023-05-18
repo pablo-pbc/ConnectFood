@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/white"
     android:scrollbars="none"
     tools:context=".DonorReceiversScheduleDetailsActivity">
@@ -80,11 +80,19 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:layout_gravity=""
+            android:rotationY="180"
+            android:contentDescription="@string/arrow_icon" />
+
+        <ImageView
             android:id="@+id/scheduleDetailsNoLoggedUserBanner"
             android:layout_width="match_parent"
             android:layout_height="176dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
             android:layout_marginHorizontal="10dp"
             android:scaleType="centerCrop"
             android:contentDescription="@string/schedule_details_user_no_logged_banner" />
@@ -325,7 +333,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginBottom="50dp">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/scheduleDetailsConfirmScheduleBtn"
@@ -342,35 +351,8 @@
                 android:layout_marginBottom="10dp"
                 android:paddingVertical="12dp"/>
 
-            <LinearLayout
-                android:id="@+id/scheduleDetailsBackBtn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/baseline_arrow_back_24"
-                    android:layout_gravity="center"
-                    android:rotationY="180"
-                    android:contentDescription="@string/arrow_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/btn_voltar"
-                    android:textColor="#F48C06"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"/>
-
             </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
 
 </ScrollView>
