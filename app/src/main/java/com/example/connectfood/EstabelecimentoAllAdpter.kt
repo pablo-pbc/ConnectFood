@@ -1,14 +1,19 @@
 package com.example.connectfood
 
 import android.content.Intent
-import android.widget.ImageView
-import com.bumptech.glide.Glide
+import android.graphics.Outline
+import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewOutlineProvider
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+
 
 class EstabelecimentoAllAdapter(private val estabelecimentos: List<EstabelecimentoAll>) :
     RecyclerView.Adapter<EstabelecimentoAllAdapter.EstabelecimentoViewHolder>() {
@@ -48,6 +53,8 @@ class EstabelecimentoAllAdapter(private val estabelecimentos: List<Estabelecimen
         private val sloganTextView = itemView.findViewById<TextView>(R.id.filterAllNoLoggedUserSlogan)
         private val distanciaTextView = itemView.findViewById<TextView>(R.id.filterAllNoLoggedUserDistance)
         private val contatoButton = itemView.findViewById<TextView>(R.id.filterAllNoLoggedContactBtn)
+        private val likeBtn = itemView.findViewById<ImageView>(R.id.filterAllNoLoggedLikeIcon)
+        var isLiked = "false"
 
         fun bindView(estabelecimento: EstabelecimentoAll) {
             nomeTextView.text = estabelecimento.nome
@@ -57,14 +64,30 @@ class EstabelecimentoAllAdapter(private val estabelecimentos: List<Estabelecimen
             // Use Glide to load the image
             Glide.with(itemView)
                 .load(estabelecimento.photo)
-                .transform(RoundedCorners(25))
+                .transform(RoundedCorners(50))
                 .into(logoImageView)
+
+            //Function to change the like or unliked icon
+            likeBtn.setOnClickListener() {
+                if (isLiked === "false") {
+                    likeBtn.setImageResource(R.drawable.liked)
+                    //COLOCAR AQUI A QUERY PRO BANCO
+                    isLiked = "true"
+                } else {
+                    likeBtn.setImageResource(R.drawable.not_liked)
+                    //COLOCAR AQUI A QUERY PRO BANCO
+                    isLiked = "false"
+                }
+            }
 
             // Handle button click event
             contatoButton.setOnClickListener {
                 // Going to the next screen
                 val details = Intent(itemView.context, DonorReceiversScheduleDetailsActivity::class.java)
                 details.putExtra("urlImage", estabelecimento.photo)
+                details.putExtra("isLiked", isLiked)
+                details.putExtra("noLoggedUserName", estabelecimento.nome)
+                details.putExtra("noLoggedUserSlogan", estabelecimento.slogan)
                 itemView.context.startActivity(details)
             }
         }

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -51,8 +52,8 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
         //Function that return the query for all donors or recipients
         fun allDonorReciverList () {
             AllEstabelecimentos = listOf(
-                EstabelecimentoAll("Restaurante 1", "Comida boa", "1 km", imageUrl),
-                EstabelecimentoAll("Restaurante 2", "Comida barata", "2 km", imageUrlFiltered),
+                EstabelecimentoAll("Restaurante 1", "Comida boa", "1 km", imageUrlFiltered),
+                EstabelecimentoAll("Restaurante 2", "Comida barata", "2 km", imageUrl),
                 EstabelecimentoAll("Restaurante 3", "Comida gostosa", "3 km", imageUrl),
                 EstabelecimentoAll("Restaurante 4", "Comida rápida", "4 km", imageUrl),
                 EstabelecimentoAll("Restaurante 5", "Comida saudável", "5 km", imageUrl)
@@ -65,19 +66,6 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
             val adapter = EstabelecimentoAllAdapter(AllEstabelecimentos)
             recyclerView.adapter = adapter
 
-            //Function to set the number of display columns as LIST
-            listBtn.setOnClickListener {
-                listBtn.setBackgroundColor(Color.parseColor("#F48C06"))
-                gridBtn.setBackgroundColor(Color.parseColor("#FFBB63"))
-                recyclerView.layoutManager = GridLayoutManager(this, 1)
-            }
-
-            //Function to set the number of display columns as GRID
-            gridBtn.setOnClickListener {
-                gridBtn.setBackgroundColor(Color.parseColor("#F48C06"))
-                listBtn.setBackgroundColor(Color.parseColor("#FFBB63"))
-                recyclerView.layoutManager = GridLayoutManager(this, 2)
-            }
         }
 
         //Function that return the query of donations scheduled or finished
@@ -98,7 +86,20 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
 
             val adapterFiltered = EstabelecimentoFilteredAdapter(estabelecimentosFiltered)
             recyclerView.adapter = adapterFiltered
+        }
 
+        //Function to set the number of display columns as LIST
+        listBtn.setOnClickListener {
+            listBtn.setBackgroundColor(Color.parseColor("#F48C06"))
+            gridBtn.setBackgroundColor(Color.parseColor("#FFBB63"))
+            recyclerView.layoutManager = GridLayoutManager(this, 1)
+        }
+
+        //Function to set the number of display columns as GRID
+        gridBtn.setOnClickListener {
+            gridBtn.setBackgroundColor(Color.parseColor("#F48C06"))
+            listBtn.setBackgroundColor(Color.parseColor("#FFBB63"))
+            recyclerView.layoutManager = GridLayoutManager(this, 2)
         }
 
         //Setting click function to filterAllBtn
