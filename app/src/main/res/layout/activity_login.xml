@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:scrollbars="none"
     tools:context=".LoginActivity">
 
@@ -47,11 +46,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:hint="@string/sign_in_input_login_hint"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood">
+            android:hint="@string/sign_in_input_login_hint">
 
             <com.santalu.maskara.widget.MaskEditText
                 android:id="@+id/signInLoginInput"
@@ -81,9 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:hint="@string/sign_in_input_password_hint"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
