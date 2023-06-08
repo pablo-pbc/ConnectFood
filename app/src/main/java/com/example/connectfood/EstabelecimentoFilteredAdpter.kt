@@ -1,6 +1,5 @@
 package com.example.connectfood
 
-import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import android.view.LayoutInflater

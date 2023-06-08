@@ -3,17 +3,23 @@ package com.example.connectfood
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
+import com.google.gson.Gson
+import okhttp3.*
+import java.io.IOException
 import java.util.*
+
 
 @Suppress("DEPRECATION")
 class DonorReceiversFilterAllActivity : AppCompatActivity() {
@@ -74,8 +80,51 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
         //Setting the layout grid with 2 columns -> Standard mode
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-        //Function that return the query for all donors or recipients
-        fun allDonorReciverList () {
+        // Função que retorna a lista de doadores ou destinatários
+        fun allDonorReceiverList() {
+            val url = "https://connect-food-back.onrender.com/user/get-distance/$cnpj"
+            val request = Request.Builder().url(url).build()
+            val client = OkHttpClient()
+
+            Log.d("URL:", url)
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    // Lida com a falha na solicitação
+                    // ...
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val json = response.body?.string()
+                    val gson = Gson()
+                    val distanceObject = gson.fromJson(json, DistanceObject::class.java)
+                    val chave = distanceObject.chave
+                    val valor = distanceObject.valor
+                    val error = distanceObject.error
+
+                    if (json != null) {
+                        Log.d("json:", json)
+                    }
+
+                    Log.d("ObjectJson:", distanceObject.toString())
+
+                    if (error == "Internal Server Error") {
+                        runOnUiThread {
+                            Toast.makeText(this@DonorReceiversFilterAllActivity, error, Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        runOnUiThread {
+                            val lista = mutableListOf<DistanceObject>()
+                            lista.add(distanceObject)
+
+                            Log.d("lista:", lista.toString())
+                            // Use a lista para realizar outras operações conforme necessário
+                            // ...
+                        }
+                    }
+                }
+            })
+
             AllEstabelecimentos = listOf(
                 EstabelecimentoAll("Restaurante 1", "Comida boa", "1 km", imageUrlFiltered),
                 EstabelecimentoAll("Restaurante 2", "Comida barata", "2 km", imageUrl),
@@ -90,7 +139,6 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
             // Creating the adapter variable and its definition as adapter from RecycleView
             val adapter = EstabelecimentoAllAdapter(AllEstabelecimentos)
             recyclerView.adapter = adapter
-
         }
 
         //Function that return the query of donations scheduled or finished
@@ -130,7 +178,7 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
         //Setting click function to filterAllBtn
         filterAllBtn.setOnClickListener {
             //Calling the function
-            allDonorReciverList ()
+            allDonorReceiverList ()
             filterAllMainLayout.visibility = View.VISIBLE
 
             //Formatting filter button
@@ -178,6 +226,6 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
         }
 
         //Standard function of the screen
-        allDonorReciverList ()
+        allDonorReceiverList ()
     }
 }
