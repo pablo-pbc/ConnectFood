@@ -58,6 +58,14 @@
                 app:maskCharacter="_"
                 android:singleLine="true"
                 android:textColor="@color/orangeConnectFood"/>
+            <!--
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signInLoginInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textColor="@color/orangeConnectFood"/>-->
 
         </com.google.android.material.textfield.TextInputLayout>
 

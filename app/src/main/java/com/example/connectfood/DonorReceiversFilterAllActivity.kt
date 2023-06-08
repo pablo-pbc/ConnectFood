@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
 import java.util.*
 
@@ -21,6 +22,11 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
     private lateinit var AllEstabelecimentos: List<EstabelecimentoAll>
     private lateinit var estabelecimentosFiltered: List<EstabelecimentoFiltered>
 
+    // variables for elements from current screen
+    private lateinit var filterAllLoggedUserLogo: ImageView
+    private lateinit var filterAllLoggedUserName: TextView
+    private lateinit var locationTextView: TextView
+
     //url image teste
     val imageUrl = "https://img.freepik.com/vetores-premium/modelo-de-design-de-logotipo-de-restaurante_79169-56.jpg?w=2000"
     val imageUrlFiltered = "https://www.designevo.com/res/templates/thumb_small/restaurant-menu-logo.webp"
@@ -29,6 +35,25 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_donor_recivers_filter_all_screen)
+
+        // Getting variables from previous screen
+        val cnpj = intent.getStringExtra("cnpj")
+        val endereco = intent.getStringExtra("endereco")
+        val nome = intent.getStringExtra("nome")
+        val photo = intent.getStringExtra("photo")
+
+        // getting elements from current screen
+        filterAllLoggedUserLogo = findViewById(R.id.filterAllLoggedUserLogo)
+        filterAllLoggedUserName = findViewById(R.id.filterAllLoggedUserName)
+        locationTextView = findViewById(R.id.locationTextView)
+
+        // Setting its values following user information's
+        filterAllLoggedUserName.text = nome
+        locationTextView.text = endereco
+        // Glide to set the image
+        Glide.with(this)
+            .load(photo)
+            .into(filterAllLoggedUserLogo)
 
         //Getting elements from current screen
         val filterAllBtn = findViewById<TextView>(R.id.filterAll)

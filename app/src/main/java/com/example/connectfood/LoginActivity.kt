@@ -1,58 +1,117 @@
 package com.example.connectfood
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.json.JSONObject
+import java.io.IOException
+import java.io.OutputStreamWriter
+import java.net.HttpURLConnection
+import java.net.URL
 
-@Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // User's login and password examples
-        val validLogin = "01123456000110"
-        val validPassword = "admin123"
-
-        //Identifying login and password fields
         val loginInput = findViewById<EditText>(R.id.signInLoginInput)
         val passwordInput = findViewById<EditText>(R.id.signInPasswordInput)
 
-        // Function to validate the user's login, here we have to use some auth method
-        fun validateLogin(login: String, password: String): Boolean {
-            return login == validLogin && password == validPassword
-        }
+        fun sendValidateLogin(urlString: String, jsonData: String) {
+            GlobalScope.launch(Dispatchers.IO) {
 
-        // Function to realize the validation and show the error message if needed
-        fun signIn() {
-            //Getting the data informed by user
-            val inputedlogin = loginInput.text.toString()
-            val password = passwordInput.text.toString()
+                var connection: HttpURLConnection? = null
 
-            // Formatting the user login 01.123.456/0001-10 -> 01123456000110
-            val formatedLogin = inputedlogin.replace("\\D".toRegex(), "")
+                try {
+                    val url = URL(urlString)
+                    connection = url.openConnection() as HttpURLConnection
 
-            if (validateLogin(formatedLogin, password)) {
-                // In case of correct login and password
-                Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show()
+                    connection.requestMethod = "POST"
+                    connection.setRequestProperty("Content-Type", "application/json")
+                    connection.doOutput = true
 
-                // Going to the next screen
-                val helloScreen = Intent(this, DonorReceiversHelloScrActivity::class.java)
-                helloScreen.putExtra("login", formatedLogin)
-                startActivity(helloScreen)
-            } else {
-                // In case of incorrect login and password
-                Toast.makeText(this, "Login ou senha incorreto!", Toast.LENGTH_SHORT).show()
+                    val outputStream = connection.outputStream
+                    val writer = OutputStreamWriter(outputStream)
+                    writer.write(jsonData)
+                    writer.flush()
+                    writer.close()
+
+                    val responseCode = connection.responseCode
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        val jsonResponse = connection.inputStream.bufferedReader().use { it.readText() }
+                        val jsonObject = JSONObject(jsonResponse)
+
+                        val cnpj = jsonObject.getString("cnpj")
+                        val endereco = jsonObject.getString("endereco")
+                        val nome = jsonObject.getString("nome")
+                        val photo = jsonObject.getString("photo")
+                        val description = jsonObject.getString("description")
+
+                        val enderecoSemDetalhes = endereco.substringBefore("-").trim()
+
+                        runOnUiThread {
+                            Toast.makeText(applicationContext, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show()
+
+                            val helloScreen = Intent(applicationContext, DonorReceiversHelloScrActivity::class.java)
+                            helloScreen.putExtra("cnpj", cnpj)
+                            helloScreen.putExtra("endereco", enderecoSemDetalhes)
+                            helloScreen.putExtra("nome", nome)
+                            helloScreen.putExtra("photo", photo)
+                            helloScreen.putExtra("description", description)
+                            startActivity(helloScreen)
+                            finish()
+                        }
+                    } else {
+                        val errorMessage = when (responseCode) {
+                            HttpURLConnection.HTTP_BAD_REQUEST -> "Invalid request. Please check your data."
+                            HttpURLConnection.HTTP_UNAUTHORIZED -> "Unauthorized. Please login again."
+                            HttpURLConnection.HTTP_FORBIDDEN -> "Forbidden. You don't have permission to access this resource."
+                            HttpURLConnection.HTTP_NOT_FOUND -> "Resource not found."
+                            HttpURLConnection.HTTP_INTERNAL_ERROR -> "Verifique seus dados de acesso!"
+                            else -> "Request failed with error code: $responseCode"
+                        }
+                        runOnUiThread {
+                            Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                    runOnUiThread {
+                        Toast.makeText(applicationContext, "An error occurred while processing the request.", Toast.LENGTH_SHORT).show()
+                    }
+                } finally {
+                    connection?.disconnect()
+                }
             }
         }
 
-        // Calling the function signIn by clicking on the button signInBtn
         val signInBtn = findViewById<Button>(R.id.signInBtn)
-        signInBtn.setOnClickListener { signIn() }
+        signInBtn.setOnClickListener {
+            val inputedLogin = loginInput.text.toString()
+            val password = passwordInput.text.toString()
 
-        // Navigating to the Register screen by clicking on register button
+            // Formatting the user login 01.123.456/0001-10 -> 01123456000110
+            val formattedLogin = inputedLogin.replace(".", "").replace("/", "").replace("-", "")
+
+            val jsonData = """
+                {
+                    "cnpj": "$formattedLogin",
+                    "password": "$password",
+                    "type": ""
+                }
+                """.trimIndent()
+
+            val url = "https://connect-food-back.onrender.com/user/login"
+
+            sendValidateLogin(url, jsonData)
+        }
+
         val signUpBtn = findViewById<TextView>(R.id.signInSignUpBtn)
         signUpBtn.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)

@@ -13,6 +13,12 @@ import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.io.OutputStreamWriter
+import java.net.HttpURLConnection
+import java.net.URL
 
 @Suppress("DEPRECATION")
 class SignUpActivity : AppCompatActivity() {
@@ -24,14 +30,18 @@ class SignUpActivity : AppCompatActivity() {
         //identificando os CHECKBOX
         val doadorCheckBox = findViewById<CheckBox>(R.id.signUpcheckBoxDoador)
         val instituicaoCheckBox = findViewById<CheckBox>(R.id.signUpcheckBoxInstituicao)
+        var userType = ""
 
         //Identificando os EditText da tela de cadastro
         val inputCNPJ = findViewById<EditText>(R.id.signUpInputCNPJ)
+        val inputFantasia = findViewById<EditText>(R.id.signUpInputFantasia)
+        val inputAtividade = findViewById<EditText>(R.id.signUpInputAtividade)
         val inputEmail = findViewById<EditText>(R.id.signUpInputEmail)
         val inputTelefone = findViewById<EditText>(R.id.signUpInputTelephone)
         val inputCEP = findViewById<EditText>(R.id.signUpInputCEP)
         val inputBairro = findViewById<EditText>(R.id.signUpInputBairro)
-        val inputEndereco = findViewById<EditText>(R.id.signUpInputEndereco)
+        val inputRua = findViewById<EditText>(R.id.signUpInputRua)
+        val inputNumero = findViewById<EditText>(R.id.signUpInputNumero)
         val inputCidade = findViewById<EditText>(R.id.signUpInputCidade)
         val inputEstado = findViewById<EditText>(R.id.signUpInputEstado)
         val inputComplemento = findViewById<EditText>(R.id.signUpInputComplemento)
@@ -65,11 +75,16 @@ class SignUpActivity : AppCompatActivity() {
                             Toast.makeText(this@SignUpActivity, "CNPJ não encontrado", Toast.LENGTH_SHORT).show()
                         }
                     } else {
-                        val rua = empresaCadastro.logradouro
-                        val numeroEmpresa = empresaCadastro.numero
-                        val enderecoCompleto = "$rua, $numeroEmpresa"
-
                         runOnUiThread {
+                            inputFantasia.setText(empresaCadastro.fantasia)
+                            val atividadePrincipalArray = empresaCadastro.atividade_principal
+                            if (atividadePrincipalArray != null) {
+                                if (atividadePrincipalArray.isNotEmpty()) {
+                                    val primeiroObjeto = atividadePrincipalArray[0]
+                                    val atividadePrincipal = primeiroObjeto.text
+                                    inputAtividade.setText(atividadePrincipal)
+                                }
+                            }
                             inputEmail.setText(empresaCadastro.email)
                             inputTelefone.setText(empresaCadastro.telefone)
                             inputCEP.setText(empresaCadastro.cep)
@@ -77,7 +92,8 @@ class SignUpActivity : AppCompatActivity() {
                             inputCidade.setText(empresaCadastro.municipio)
                             inputEstado.setText(empresaCadastro.uf)
                             inputComplemento.setText(empresaCadastro.complemento)
-                            inputEndereco.setText(enderecoCompleto)
+                            inputRua.setText(empresaCadastro.logradouro)
+                            inputNumero.setText(empresaCadastro.numero)
                         }
                     }
                 }
@@ -108,11 +124,52 @@ class SignUpActivity : AppCompatActivity() {
         //Função para desabilitar o checkbox da instituição se o usuario for doador
         doadorCheckBox.setOnCheckedChangeListener { _, isChecked ->
             instituicaoCheckBox.isEnabled = !isChecked
+            userType = "DONOR"
         }
 
         //Função para desabilitar o checkbox do doador se o usuario for instituição
         instituicaoCheckBox.setOnCheckedChangeListener { _, isChecked ->
             doadorCheckBox.isEnabled = !isChecked
+            userType = "RECEIVER"
+        }
+
+        // Funtion to send the registration information
+        fun sendRegistrationData(urlString: String, jsonData: String) {
+            GlobalScope.launch(Dispatchers.IO) {
+                val url = URL(urlString)
+                val connection = url.openConnection() as HttpURLConnection
+
+                // Set request method
+                connection.requestMethod = "POST"
+                connection.setRequestProperty("Content-Type", "application/json")
+                connection.doOutput = true
+
+                // Write the JSON data to the request body
+                val outputStream = connection.outputStream
+                val writer = OutputStreamWriter(outputStream)
+                writer.write(jsonData)
+                writer.flush()
+                writer.close()
+
+                // Get the response from the server
+                val responseCode = connection.responseCode
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    // Request OK
+                } else {
+                    // Request failed
+                    val errorMessage = when (responseCode) {
+                        HttpURLConnection.HTTP_BAD_REQUEST -> "Invalid request. Please check your data."
+                        HttpURLConnection.HTTP_UNAUTHORIZED -> "Unauthorized. Please login again."
+                        HttpURLConnection.HTTP_FORBIDDEN -> "Forbidden. You don't have permission to access this resource."
+                        HttpURLConnection.HTTP_NOT_FOUND -> "Resource not found."
+                        HttpURLConnection.HTTP_INTERNAL_ERROR -> "Internal server error."
+                        else -> "Request failed with error code: $responseCode"
+                    }
+                    Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_SHORT).show()
+                }
+
+                connection.disconnect()
+            }
         }
 
         //Função para confirmar o cadastro do usuario
@@ -120,29 +177,38 @@ class SignUpActivity : AppCompatActivity() {
 
             //Pegando os textos de todos os inputs
             val stringCNPJ = inputCNPJ.text.toString().replace("\\D".toRegex(), "")
+            val stringFantasia = inputFantasia.text.toString()
+            val stringAtividade = inputAtividade.text.toString()
             val stringEmail = inputEmail.text.toString()
             val stringTelefone = inputTelefone.text.toString().replace("\\D".toRegex(), "")
             val stringCEP = inputCEP.text.toString()
             val stringBairro = inputBairro.text.toString()
-            val stringEndereco = inputEndereco.text.toString()
+            val stringRua = inputRua.text.toString()
+            val stringNumero = inputNumero.text.toString()
             val stringCidade = inputCidade.text.toString()
             val stringEstado = inputEstado.text.toString()
             val stringComplemento = inputComplemento.text.toString()
             val stringPassword = inputPassword.text.toString()
             val stringConfirmPassword = inputConfirmPassword.text.toString()
 
+            Log.d("User type:", userType)
+
             val inputStringList = listOf(
                 stringCNPJ,
+                stringFantasia,
+                stringAtividade,
                 stringEmail,
                 stringTelefone,
                 stringCEP,
                 stringBairro,
-                stringEndereco,
+                stringRua,
+                stringNumero,
                 stringCidade,
                 stringEstado,
                 stringComplemento,
                 stringPassword,
-                stringConfirmPassword
+                stringConfirmPassword,
+                userType
             )
 
             //Função para requisitos minimos de senha
@@ -168,13 +234,38 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "As senhas não são iguais!", Toast.LENGTH_SHORT).show()
                 textViewPasswordRules.visibility = View.GONE
             } else {
+                val url = "https://connect-food-back.onrender.com/user/register"
+                val jsonData = """
+                    {
+                        "addresses": [
+                            {
+                                "bairro": "$stringBairro",
+                                "cep": "$stringCEP",
+                                "cidade": "$stringCidade",
+                                "estado": "$stringEstado",
+                                "numero": "$stringNumero",
+                                "rua": "$stringRua"
+                            }
+                        ],
+                        "cellphone": "$stringTelefone",
+                        "cnpj": "$stringCNPJ",
+                        "curtido": [0],
+                        "description": "$stringAtividade",
+                        "email": "$stringEmail",
+                        "name": "$stringFantasia",
+                        "password": "$stringPassword",
+                        "phone": "$stringTelefone",
+                        "photo": "https://img.freepik.com/free-icon/user_318-159711.jpg",
+                        "type": "$userType"
+                    }
+                """.trimIndent()
+
+                sendRegistrationData(url, jsonData)
+
                 Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, LoginActivity::class.java)
-                intent.putExtra("login", stringCNPJ)
-                intent.putExtra("senha", stringPassword)
                 startActivity(intent)
             }
         }
-
     }
 }

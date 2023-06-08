@@ -14,16 +14,20 @@
     <string name="sign_in_btn_txt">Sign In</string>
     <string name="sign_in_input_password_hint">Password</string>
     <string name="sign_in_input_login_hint">01.123.456/0001-10</string>
+    <string name="sign_in_input_email_hint">email@email.com.br</string>
 
     <!--Layout Sign Up xml standard texts-->
     <string name="sign_up_cep">CEP</string>
     <string name="sign_up_cnpj">CNPJ</string>
+    <string name="sign_up_fantasia">Nome Fantasia</string>
+    <string name="sign_up_atividade">Atividade</string>
     <string name="sign_up_email">Email</string>
     <string name="sign_up_cidade">Cidade</string>
     <string name="sign_up_estado">Estado</string>
     <string name="sign_up_bairro">Bairro</string>
     <string name="sign_up_btn">Cadastre-se</string>
-    <string name="sign_up_endereco">Endereço</string>
+    <string name="sign_up_rua">Rua</string>
+    <string name="sign_up_numero">Nº</string>
     <string name="sign_up_telefone">Telefone</string>
     <string name="sign_up_password">Password</string>
     <string name="sign_up_doador_checkbox">Doador</string>
@@ -51,6 +55,7 @@
     <string name="label_adress">Endereço:</string>
     <string name="label_contact">Contato:</string>
     <string name="label_user_login">CNPJ:</string>
+    <string name="label_user_email">E-mail:</string>
     <string name="label_filter_all"><u>Todos</u></string>
     <string name="label_user_password">Senha:</string>
     <string name="label_filter_scheduled">Agendados</string>
