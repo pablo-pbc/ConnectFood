@@ -57,9 +57,9 @@ class EstabelecimentoAllAdapter(private val estabelecimentos: List<Estabelecimen
         var isLiked = "false"
 
         fun bindView(estabelecimento: EstabelecimentoAll) {
-            nomeTextView.text = estabelecimento.nome
-            sloganTextView.text = estabelecimento.slogan
-            distanciaTextView.text = estabelecimento.distancia
+            nomeTextView.text = estabelecimento.name
+            sloganTextView.text = estabelecimento.description
+            distanciaTextView.text = estabelecimento.distance
 
             // Use Glide to load the image
             Glide.with(itemView)
@@ -86,8 +86,8 @@ class EstabelecimentoAllAdapter(private val estabelecimentos: List<Estabelecimen
                 val details = Intent(itemView.context, DonorReceiversScheduleDetailsActivity::class.java)
                 details.putExtra("urlImage", estabelecimento.photo)
                 details.putExtra("isLiked", isLiked)
-                details.putExtra("noLoggedUserName", estabelecimento.nome)
-                details.putExtra("noLoggedUserSlogan", estabelecimento.slogan)
+                details.putExtra("noLoggedUserName", estabelecimento.name)
+                details.putExtra("noLoggedUserSlogan", estabelecimento.description)
                 itemView.context.startActivity(details)
             }
         }
