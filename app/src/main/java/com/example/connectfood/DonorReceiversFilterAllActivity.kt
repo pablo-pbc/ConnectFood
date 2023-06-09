@@ -21,6 +21,8 @@ import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 import okhttp3.*
+import org.json.JSONArray
+import org.json.JSONException
 
 
 @Suppress("DEPRECATION")
@@ -34,9 +36,9 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
     private lateinit var filterAllLoggedUserName: TextView
     private lateinit var locationTextView: TextView
 
-    // URL de imagem de teste
-    private val imageUrl = "https://img.freepik.com/vetores-premium/modelo-de-design-de-logotipo-de-restaurante_79169-56.jpg?w=2000"
-    private val imageUrlFiltered = "https://www.designevo.com/res/templates/thumb_small/restaurant-menu-logo.webp"
+    // Declaração da variável scheduleTypeUsers fora da função
+    private val scheduleTypeUsers = mutableListOf<EstabelecimentoFiltered>()
+    private var filteredList = mutableListOf<EstabelecimentoFiltered>()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +50,7 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
         val endereco = intent.getStringExtra("endereco")
         val nome = intent.getStringExtra("nome")
         val photo = intent.getStringExtra("photo")
+        val type = intent.getStringExtra("type")
 
         // Obtendo elementos da tela atual
         filterAllLoggedUserLogo = findViewById(R.id.filterAllLoggedUserLogo)
@@ -156,25 +159,63 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
             })
         }
 
-
         // Função que retorna a lista filtrada de doadores ou destinatários
         fun filteredDonorReceiverList(filterType: String) {
+            val scheduleTypeUsers = mutableListOf<EstabelecimentoFiltered>()
+            val coroutineScope = CoroutineScope(Dispatchers.Main)
+
             val btnTxt: String = if (filterType == "scheduled") "Finalizar" else ""
             val finishedData: Boolean = filterType == "scheduled"
 
-            recyclerView.layoutManager = GridLayoutManager(this, 1)
+            val urlDonor = "https://connect-food-back.onrender.com/doacao/get-by-cnpj/$cnpj"
+            val requestDonor = Request.Builder().url(urlDonor).build()
+            val clientDonor = OkHttpClient()
 
-            estabelecimentosFiltered = listOf(
-                EstabelecimentoFiltered("Restaurante 1", "15/05/23", null, "1 km", imageUrlFiltered, btnTxt, finishedData),
-                EstabelecimentoFiltered("Restaurante 2", "15/05/23", null, "2 km", imageUrlFiltered, btnTxt, finishedData),
-                EstabelecimentoFiltered("Restaurante 3", "15/05/23", null, "3 km", imageUrlFiltered, btnTxt, finishedData),
-                EstabelecimentoFiltered("Restaurante 4", "15/05/23", null, "4 km", imageUrlFiltered, btnTxt, finishedData),
-                EstabelecimentoFiltered("Restaurante 5", "15/05/23", null, "5 km", imageUrlFiltered, btnTxt, finishedData)
-            )
+            clientDonor.newCall(requestDonor).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    // Lidando com a falha na solicitação
+                    runOnUiThread {
+                        Toast.makeText(this@DonorReceiversFilterAllActivity, "Internal Server Error", Toast.LENGTH_SHORT).show()
+                    }
+                }
 
-            val adapterFiltered = EstabelecimentoFilteredAdapter(estabelecimentosFiltered)
-            recyclerView.adapter = adapterFiltered
+                override fun onResponse(call: Call, response: Response) {
+                    val jsonString = response.body?.string()
+
+                    try {
+                        val jsonArray = JSONArray(jsonString)
+                        for (i in 0 until jsonArray.length()) {
+                            val jsonObject = jsonArray.getJSONObject(i)
+                            val doacaoFinalizada = jsonObject.getBoolean("doacaoFinalizada")
+                            val restaurante = jsonObject.getJSONObject("restaurante")
+                            val name = restaurante.getString("name")
+                            val dataAgendamento = jsonObject.getString("dataAgendamento")
+                            val dataFinalizado = jsonObject.getString("dataFinalizado")
+                            val photo = restaurante.getString("photo")
+
+                            if ((filterType == "scheduled" && !doacaoFinalizada) || (filterType == "finished" && doacaoFinalizada)) {
+                                val estabelecimentoFiltered = EstabelecimentoFiltered(name, dataAgendamento, dataFinalizado, photo, btnTxt, finishedData, doacaoFinalizada.toString())
+                                scheduleTypeUsers.add(estabelecimentoFiltered)
+                            }
+                        }
+
+                        runOnUiThread {
+                            // Definindo o layout de grade com 2 colunas -> modo padrão
+                            recyclerView.layoutManager = GridLayoutManager(this@DonorReceiversFilterAllActivity, 1)
+                            val adapter = EstabelecimentoFilteredAdapter(scheduleTypeUsers)
+                            recyclerView.adapter = adapter
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                        runOnUiThread {
+                            Toast.makeText(this@DonorReceiversFilterAllActivity, "Error parsing JSON", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            })
         }
+
+
 
         // Função para definir o número de colunas de exibição como LISTA
         listBtn.setOnClickListener {
@@ -235,9 +276,14 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
 
             filterFinishedBtn.typeface = robotoBold
             filterFinishedBtn.paintFlags = 1
-
             filterScheduleBtn.typeface = robotoRegular
             filterScheduleBtn.paintFlags = 0
+
+            // Atualizar a lista filtrada
+            filteredList = scheduleTypeUsers.filter { it.doacaoFinalizada.toBoolean() == true }.toMutableList()
+
+            // Exibir a lista filtrada no RecyclerView
+            recyclerView.adapter?.notifyDataSetChanged()
         }
 
         // Função padrão da tela

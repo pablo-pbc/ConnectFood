@@ -3,6 +3,7 @@ package com.example.connectfood
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.Dispatchers
@@ -51,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
                         val endereco = jsonObject.getString("endereco")
                         val nome = jsonObject.getString("nome")
                         val photo = jsonObject.getString("photo")
+                        val type = jsonObject.getString("type")
                         val description = jsonObject.getString("description")
 
                         val enderecoSemDetalhes = endereco.substringBefore("-").trim()
@@ -64,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
                             helloScreen.putExtra("nome", nome)
                             helloScreen.putExtra("photo", photo)
                             helloScreen.putExtra("description", description)
+                            helloScreen.putExtra("type", type)
                             startActivity(helloScreen)
                             finish()
                         }

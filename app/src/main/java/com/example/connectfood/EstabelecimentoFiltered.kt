@@ -1,11 +1,11 @@
 package com.example.connectfood
 
 data class EstabelecimentoFiltered (
-    val nome: String,
+    val name: String,
     val dataAgendamento: String,
-    val dataEncerramento: String?,
-    val distancia: String,
+    val dataFinalizado: String?,
     val photo: String,
     val txtBtn: String,
-    val visibility: Boolean
+    val visibility: Boolean,
+    val doacaoFinalizada: String
     )

@@ -48,6 +48,7 @@ class DonorReceiversHelloScrActivity : AppCompatActivity() {
 
         // Retrieving the user's login from signIn activity
         val cnpj = intent.getStringExtra("cnpj")
+        val type = intent.getStringExtra("type")
         val endereco = intent.getStringExtra("endereco")
         val nome = intent.getStringExtra("nome")
         val photo = intent.getStringExtra("photo")
@@ -92,6 +93,7 @@ class DonorReceiversHelloScrActivity : AppCompatActivity() {
                 intent.putExtra("photo", userPhoto)
                 intent.putExtra("nome", userName)
                 intent.putExtra("cnpj", cnpj)
+                intent.putExtra("type", type)
                 startActivity(intent)
                 finish()
             }, splashDelay.toLong())

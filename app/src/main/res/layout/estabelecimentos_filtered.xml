@@ -126,26 +126,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.5"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_location_on_24"
-                    android:layout_gravity="start|center"
-                    android:contentDescription="@string/location_icon" />
-
-                <TextView
-                    android:id="@+id/filteredUserDistance"
-                    android:layout_width="0dp"
-                    android:layout_weight="3"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/orangeConnectFood"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textSize="12sp"
-                    android:text="@string/filter_type_no_logged_distance"
-                    android:layout_gravity="center"
-                    android:layout_marginVertical="10dp"/>
-
                 <TextView
                     android:id="@+id/filteredBtn"
                     android:layout_width="0dp"
@@ -155,7 +135,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:textSize="12sp"
                     android:text="@string/filter_type_finish_btn"
-                    android:layout_gravity="center"
+                    android:textAlignment="textEnd"
                     android:layout_marginVertical="10dp"/>
 
             </LinearLayout>
