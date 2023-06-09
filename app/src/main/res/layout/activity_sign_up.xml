@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:scrollbars="none"
     tools:context=".SignUpActivity">
 
@@ -57,10 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="@string/sign_up_cnpj"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood">
+            android:hint="@string/sign_up_cnpj">
 
             <com.santalu.maskara.widget.MaskEditText
                 android:id="@+id/signUpInputCNPJ"
@@ -80,10 +76,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/sign_up_email"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood">
+            android:hint="@string/sign_up_fantasia">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signUpInputFantasia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/orangeConnectFood" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/sign_up_atividade">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signUpInputAtividade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/orangeConnectFood" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/sign_up_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signUpInputEmail"
@@ -100,10 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/sign_up_telefone"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood">
+            android:hint="@string/sign_up_telefone">
 
             <com.santalu.maskara.widget.MaskEditText
                 android:id="@+id/signUpInputTelephone"
@@ -128,10 +152,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="@string/sign_up_cep"
-                app:hintTextColor="@color/orangeConnectFood"
-                android:textColorHint="@color/orangeConnectFood"
-                app:boxStrokeColor="@color/orangeConnectFood">
+                android:hint="@string/sign_up_cep">
 
                 <com.santalu.maskara.widget.MaskEditText
                     android:id="@+id/signUpInputCEP"
@@ -152,10 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="10dp"
-                android:hint="@string/sign_up_bairro"
-                app:hintTextColor="@color/orangeConnectFood"
-                android:textColorHint="@color/orangeConnectFood"
-                app:boxStrokeColor="@color/orangeConnectFood">
+                android:hint="@string/sign_up_bairro">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/signUpInputBairro"
@@ -170,35 +188,55 @@
 
         </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/sign_up_endereco"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood">
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signUpInputEndereco"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_weight="3"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:singleLine="true"
-                android:textColor="@color/orangeConnectFood" />
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/sign_up_rua">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signUpInputRua"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/orangeConnectFood"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/sign_up_numero">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signUpInputNumero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/orangeConnectFood" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/sign_up_complemento"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood">
+            android:hint="@string/sign_up_complemento">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signUpInputComplemento"
@@ -220,10 +258,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="@string/sign_up_cidade"
-                app:hintTextColor="@color/orangeConnectFood"
-                android:textColorHint="@color/orangeConnectFood"
-                app:boxStrokeColor="@color/orangeConnectFood">
+                android:hint="@string/sign_up_cidade">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/signUpInputCidade"
@@ -242,10 +277,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="10dp"
-                android:hint="@string/sign_up_estado"
-                app:hintTextColor="@color/orangeConnectFood"
-                android:textColorHint="@color/orangeConnectFood"
-                app:boxStrokeColor="@color/orangeConnectFood">
+                android:hint="@string/sign_up_estado">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/signUpInputEstado"
@@ -266,9 +298,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/sign_up_password"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -298,9 +327,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/sign_up_confirm_password"
-            app:hintTextColor="@color/orangeConnectFood"
-            android:textColorHint="@color/orangeConnectFood"
-            app:boxStrokeColor="@color/orangeConnectFood"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
