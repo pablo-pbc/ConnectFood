@@ -41,7 +41,6 @@ class EstabelecimentoFilteredAdapter(private val estabelecimentosFiltered: List<
         private val logoImageView = itemView.findViewById<ImageView>(R.id.filteredUserLogo)
         private val nomeTextView = itemView.findViewById<TextView>(R.id.filteredUserName)
         private val dataTextView = itemView.findViewById<TextView>(R.id.filteredScheduledDate)
-        private val distanciaTextView = itemView.findViewById<TextView>(R.id.filteredUserDistance)
         private val button = itemView.findViewById<TextView>(R.id.filteredBtn)
         private val finishedLayoutData = itemView.findViewById<LinearLayout>(R.id.filteredFinishedDateLayout)
         private val finishedData = itemView.findViewById<TextView>(R.id.filteredFinishedDate)
@@ -49,12 +48,11 @@ class EstabelecimentoFilteredAdapter(private val estabelecimentosFiltered: List<
 
         // bindView updates the views in the view holder with the information from the given estabelecimento
         fun bindView(estabelecimento: EstabelecimentoFiltered) {
-            nomeTextView.text = estabelecimento.nome
+            nomeTextView.text = estabelecimento.name
             dataTextView.text = estabelecimento.dataAgendamento
-            distanciaTextView.text = estabelecimento.distancia
             button.text = estabelecimento.txtBtn
             visibility = estabelecimento.visibility
-            finishedData.text = estabelecimento.dataEncerramento
+            finishedData.text = estabelecimento.dataFinalizado
 
             if (!visibility) finishedLayoutData.visibility = View.VISIBLE else finishedLayoutData.visibility = View.GONE
 
