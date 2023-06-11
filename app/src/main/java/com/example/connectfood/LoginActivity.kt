@@ -52,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
                         val endereco = jsonObject.getString("endereco")
                         val nome = jsonObject.getString("nome")
                         val photo = jsonObject.getString("photo")
+                        val id = jsonObject.getString("id")
                         val type = jsonObject.getString("type")
                         val description = jsonObject.getString("description")
 
@@ -66,6 +67,7 @@ class LoginActivity : AppCompatActivity() {
                             helloScreen.putExtra("nome", nome)
                             helloScreen.putExtra("photo", photo)
                             helloScreen.putExtra("description", description)
+                            helloScreen.putExtra("id", id)
                             helloScreen.putExtra("type", type)
                             startActivity(helloScreen)
                             finish()

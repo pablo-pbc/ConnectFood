@@ -1,5 +1,6 @@
 package com.example.connectfood
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -50,6 +51,7 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
         val endereco = intent.getStringExtra("endereco")
         val nome = intent.getStringExtra("nome")
         val photo = intent.getStringExtra("photo")
+        val id = intent.getStringExtra("id")
         val type = intent.getStringExtra("type")
 
         // Obtendo elementos da tela atual
@@ -113,14 +115,13 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
                         while (keys.hasNext()) {
                             val key = keys.next() as String
                             val distance = jsonObject.getString(key)
-                            val numericKey = key.toLong()
 
                             val numericDistance = distance.split(" ")[0].toDoubleOrNull() // Extrai o valor numérico da distância como Double
 
                             // Comparação com uma distância X
                             val distanceRadius = 40.0 // Distância de referência
                             if (numericDistance != null && numericDistance > distanceRadius) {
-                                val urlUser = "https://connect-food-back.onrender.com/user/cnpj/$numericKey"
+                                val urlUser = "https://connect-food-back.onrender.com/user/cnpj/$key"
                                 val requestUser = Request.Builder().url(urlUser).build()
                                 val clientUser = OkHttpClient()
 
@@ -132,6 +133,12 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
                                             val gson = Gson()
                                             val user = gson.fromJson(responseUserString, EstabelecimentoAll::class.java)
                                             user.distance = distance
+                                            user.cnpj = key
+                                            user.loggedUserId = id.toString()
+                                            user.loggedUserType = type.toString()
+                                            user.loggedUserName = nome.toString()
+                                            user.loggedUserPhoto = photo.toString()
+                                            user.loggedUserLocation = endereco.toString()
                                             user
                                         } else {
                                             null
@@ -162,7 +169,7 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
         // Função que retorna a lista filtrada de doadores ou destinatários
         fun filteredDonorReceiverList(filterType: String) {
             val scheduleTypeUsers = mutableListOf<EstabelecimentoFiltered>()
-            val coroutineScope = CoroutineScope(Dispatchers.Main)
+            //val coroutineScope = CoroutineScope(Dispatchers.Main)
 
             val btnTxt: String = if (filterType == "scheduled") "Finalizar" else ""
             val finishedData: Boolean = filterType == "scheduled"
@@ -190,6 +197,7 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
                             val restaurante = jsonObject.getJSONObject("restaurante")
                             val name = restaurante.getString("name")
                             val dataAgendamento = jsonObject.getString("dataAgendamento")
+                            println(dataAgendamento)
                             val dataFinalizado = jsonObject.getString("dataFinalizado")
                             val photo = restaurante.getString("photo")
 
@@ -214,8 +222,6 @@ class DonorReceiversFilterAllActivity : AppCompatActivity() {
                 }
             })
         }
-
-
 
         // Função para definir o número de colunas de exibição como LISTA
         listBtn.setOnClickListener {
