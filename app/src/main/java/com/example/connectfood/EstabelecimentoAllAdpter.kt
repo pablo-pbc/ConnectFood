@@ -88,6 +88,12 @@ class EstabelecimentoAllAdapter(private val estabelecimentos: List<Estabelecimen
                 details.putExtra("isLiked", isLiked)
                 details.putExtra("noLoggedUserName", estabelecimento.name)
                 details.putExtra("noLoggedUserSlogan", estabelecimento.description)
+                details.putExtra("cnpjNoLogged", estabelecimento.cnpj)
+                details.putExtra("loggedUserId", estabelecimento.loggedUserId)
+                details.putExtra("loggedUserType", estabelecimento.loggedUserType)
+                details.putExtra("loggedUserName", estabelecimento.loggedUserName)
+                details.putExtra("loggedUserPhoto", estabelecimento.loggedUserPhoto)
+                details.putExtra("loggedUserLocation", estabelecimento.loggedUserLocation)
                 itemView.context.startActivity(details)
             }
         }
